@@ -1,4 +1,4 @@
-import Header from '../Header/Header';
+import Header from '~/layouts/Header/Header';
 import styles from './HeaderOnly.module.scss';
 
 function HeaderOnly({ children }) {

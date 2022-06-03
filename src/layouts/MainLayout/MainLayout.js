@@ -1,5 +1,5 @@
-import Header from '../Header/Header';
-import Sidebar from '../Sidebar/Sidebar';
+import Header from '~/layouts/Header/Header';
+import Sidebar from '~/layouts/Sidebar/Sidebar';
 import styles from './MainLayout.module.scss';
 
 function MainLayout({ children }) {
