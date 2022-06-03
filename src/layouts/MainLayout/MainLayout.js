@@ -4,7 +4,7 @@ import styles from './MainLayout.module.scss';
 
 function MainLayout({ children }) {
     return (
-        <div>
+        <div className={styles.wrapper}>
             <Header />
             <div className={styles.container}>
                 <Sidebar />
