@@ -1,0 +1,34 @@
+@mixin mobile {
+  @media (max-width: 47.9375em) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 48em) and (max-width: 63.9375em) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: 64em){
+    @content;
+  }
+}
+
+@mixin textStyle($fontsize, $color, $fontweight) {
+  font-size: $fontsize;
+  color: $color;
+  font-weight: $fontweight;
+}
+
+@mixin horizontalLine() {
+  content: "";
+  height: 1px;
+  background: rgba(22, 24, 35, 0.12);
+  position: absolute;
+  top: 0;
+  left: 8px;
+  right: 8px;
+  transform: scaleY(0.5);
+}

@@ -1,0 +1,127 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+    font-family: $primary-font;
+    line-height: 1;
+    box-sizing: border-box;
+}
+// ::-webkit-scrollbar {
+//     width: 0;
+// }
+::-webkit-scrollbar {
+    width: 8px;
+    height: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(22, 24, 35, 0.12);
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body {
+    color: $black-color;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+input {
+    line-height: normal;
+}
+
+input,
+textarea,
+select,
+button {
+    outline: none;
+}
+
+label,
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 0 auto;   
+}
+
+a {
+    color: inherit;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.checkIconSmall {
+    color: rgb(32, 213, 236);
+    font-size: 14px;
+    margin: 0 4px;
+}
+.checkIconMedium {
+    color: rgb(32, 213, 236);
+    font-size: 20px;
+    margin: 0 4px;
+}
+
+.heartSmall {
+    width: 32px;
+    height: 32px;
+    line-height: 40px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    background: rgba(22, 24, 35, 0.06);
+
+    @include mobile {
+        color: #fff;
+        background: none;
+    }
+}
+
+.heartMedium {
+    width: 48px;
+    height: 48px;
+    line-height: 58px;
+    font-size: 2.4rem;
+    border-radius: 50%;
+    background-color: rgba(22, 24, 35, 0.06);
+
+    @include mobile {
+        color: #fff;
+        background: none;
+        font-size: 3rem;
+    }
+}
+
+.active {
+    color: $dark-red;
+}
