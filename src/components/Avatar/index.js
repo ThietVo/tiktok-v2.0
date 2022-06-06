@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import style from "./Avatar.module.scss";
+import styles from "./Avatar.module.scss";
 
 function Avatar({
   urlImg,
@@ -15,11 +15,11 @@ function Avatar({
         src={urlImg}
         alt=""
         className={clsx({
-          [style.avatarSmall]: avatarSmall,
-          [style.avatarSmallPlus]: avatarSmallPlus,
-          [style.avatarMedium]: avatarMedium,
-          [style.avatarLarge]: avatarLarge,
-          [style.avatarExtraLarge]: avatarExtraLarge
+          [styles.avatarSmall]: avatarSmall,
+          [styles.avatarSmallPlus]: avatarSmallPlus,
+          [styles.avatarMedium]: avatarMedium,
+          [styles.avatarLarge]: avatarLarge,
+          [styles.avatarExtraLarge]: avatarExtraLarge
         })}
       />
     </>

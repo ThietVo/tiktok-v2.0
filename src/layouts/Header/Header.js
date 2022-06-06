@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import Search from './Search';
 import styles from './Header.module.scss';
 import Logo from './Logo';
+import RightHeader from './RightHeader';
+
 
 function Header() {
     return (
@@ -10,7 +12,7 @@ function Header() {
                 <div className={styles.headerMain}>
                     <Logo />
                     <Search />
-                    <div>RightHeader</div>
+                    <RightHeader />
                         {/* <Logo />
                         <HeaderSearch />
                         {userLogged.id ? <HeaderRightLogged /> : <HeaderRight />} */}

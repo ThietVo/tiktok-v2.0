@@ -1,0 +1,49 @@
+
+// Menu wrapper
+.menuList {
+    width: 224px;
+
+    .menuItem {
+        margin-left: 0;
+    }
+}
+
+.menuPopper {
+    padding-bottom: 8px;
+}
+
+// Menu items
+.menuItem {
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: 0;
+    padding: 11px 16px;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+// MenuHeader
+.menuHeader {
+    position: relative;
+    height: 50px;
+    margin-top: -8px;
+    font-size: 1.6rem;
+}
+
+.backBtn {
+    font-size: 1.8rem;
+    width: 50px;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.menuHeaderTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

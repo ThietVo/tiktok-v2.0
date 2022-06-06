@@ -6,7 +6,7 @@ import { GrClose } from 'react-icons/gr';
 import Tippy from '@tippyjs/react/headless';
 
 import styles from './Search.module.scss';
-import PopperWrapper from '~/components/PopperWrapper';
+import { Wrapper as PopperWrapper } from '~/components/Popper/Wrapper';
 import AccountItem from '~/components/AccountItem';
 
 function Search() {
