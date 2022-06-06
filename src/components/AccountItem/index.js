@@ -4,17 +4,17 @@ import { FaCheckCircle } from 'react-icons/fa';
 import Avatar from '../Avatar';
 import styles from './AccountItem.module.scss';
 
-function AccountItem() {
-    const url = require('~/assets/images/logo.svg.png');
+function AccountItem({ data }) {
+    
     return (
         <div className={styles.wrapper}>
-            <Avatar urlImg={url} avatarSmallPlus/>
+            <Avatar urlImg={data.avatar} avatarSmallPlus/>
             <div className={styles.info}>
                 <h4 className={styles.infoTiktokid}>
-                    <span>hoaa.hanassi</span>
+                    <span>{data.tiktokid}</span>
                     <FaCheckCircle className={clsx("checkIconSmall")} />
                 </h4>
-                <p className={styles.infoUsername}>Dao Le Phuong Hoa</p>
+                <p className={styles.infoUsername}>{data.username}</p>
             </div>
         </div>
      );
