@@ -1,0 +1,65 @@
+@import "../../../scss/variable";
+@import "../../../scss/mixin";
+@import "../../../scss/animation";
+
+.modalInner {
+  background: #fff;
+  width: 472px;
+  height: calc(100vh - 64px);
+  max-height: 400px;
+  border: none;
+  position: relative;
+  padding: 40px;
+  z-index: 9999999;
+
+  &Header {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    & h2 {
+      @include textStyle(2.2rem, $dark-red, 500);
+    }
+    & button {
+      border: none;
+      background: none;
+      @include textStyle(1.8rem, $black-color, 500);
+    }
+  }
+}
+
+//Register && Login
+.formGroup + .formGroup{
+  margin-top: 30px;
+}
+.formInput {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #e0dddd;
+  @include textStyle(1.8rem, $black-color, 400);
+}
+
+.formControl {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+}
+
+//Register
+.alertError {
+  @include textStyle(1.4rem, #dc3545, 400);
+  margin: 8px 0 12px;
+}
+
+//Login
+.loginFail {
+  display: flex;
+  margin: 12px 0;
+  &Icon {
+    @include textStyle(1.4rem, #dc3545, 400);
+    margin-right: 8px;
+  }
+  &Text {
+    @include textStyle(1.4rem, #dc3545, 400)
+  }
+}

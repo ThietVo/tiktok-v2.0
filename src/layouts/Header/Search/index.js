@@ -44,6 +44,13 @@ function Search() {
             });
     }, [debounced]);
 
+    const handleChange = (e) => {
+        //ko cho nhap dau cach dau tien
+        if(!e.target.value.startsWith(' ')){
+            setSearchValue(e.target.value);
+        }
+    }
+
     const handleClearSearch = () => {
         setSearchValue('');
         setSearchResult([]);
@@ -76,7 +83,7 @@ function Search() {
                         placeholder="Search accounts and videos"
                         spellCheck={false}
                         value={searchValue}
-                        onChange={(e) => setSearchValue(e.target.value)}
+                        onChange={handleChange}
                         onFocus={() => setShowResult(true)}
                     />
                     {!!searchValue && !loading && (

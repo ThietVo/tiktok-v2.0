@@ -2,13 +2,15 @@ import { useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
 
 import styles from './Menu.module.scss';
-import { Wrapper as PopperWrapper} from '~/components/Popper/Wrapper';
+import { Wrapper as PopperWrapper } from '~/components/Popper/Wrapper';
 import MenuItem from '~/components/Popper/Menu/MenuItem';
 import MenuHeader from './MenuHeader';
+
 
 const defaultFn = () => {};
 
 function Menu({ children, items = [], onChange = defaultFn }) {
+
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -30,9 +32,9 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                 />
             );
         });
-    }
+    };
 
-    return ( 
+    return (
         <Tippy
             interactive
             delay={[0, 700]}
@@ -48,14 +50,14 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={styles.menuBody}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
         >
             {children}
         </Tippy>
-     );
+    );
 }
 
 export default Menu;

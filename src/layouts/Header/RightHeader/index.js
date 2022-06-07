@@ -3,11 +3,20 @@ import { FiHelpCircle, FiSettings, FiLogOut } from 'react-icons/fi';
 import { AiOutlineUser } from 'react-icons/ai';
 import { BiCloudUpload } from 'react-icons/bi';
 import Tippy from '@tippyjs/react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+import { auth } from '~/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu/Menu';
 import styles from './RightHeader.module.scss';
-import { Link } from 'react-router-dom';
+import modalSlice from '~/redux/modalSlice';
+import { getUserApi } from '~/callApi/usersApi';
+import userLoginSlice from '~/redux/userLoginSlice';
+import { userLoginSelector } from '~/redux/selector';
 
 const MENU_ITEMS = [
     {
@@ -41,8 +50,25 @@ const MENU_ITEMS = [
 ];
 
 function RightHeader() {
-    const userLogged = true;
-    const url = require('~/assets/images/logo.svg.png');
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => {
+            //if logged -> send id logged to redux
+            if (currentUser) {
+                setTimeout(() => {
+                    getUserApi(currentUser.uid).then((result) => dispatch(userLoginSlice.actions.setUserLogin(result)));
+                    //get list videos liked by userLogged and dispatch to redux
+                    // getLikedVideosOfUser(currentUser.uid).then((result) => {
+                    //   dispatch(likedVideosSlice.actions.setLikedVideos(result));
+                    // });
+                }, 1000);
+            }
+        });
+    }, [dispatch]);
+    
+
+    const { userLogged } = useSelector(userLoginSelector); //get redux
     // Handle logic
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -78,9 +104,14 @@ function RightHeader() {
         },
     ];
 
+    const handleClickLoginBtn = () => {
+        dispatch(modalSlice.actions.setModalLogin(true));
+    };
+
+    console.log(userLogged.id);
     return (
         <div className={styles.wrapper}>
-            {userLogged ? (
+            {userLogged.id ? (
                 <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                     <Link to="/upload" className={styles.actionBtn}>
                         <BiCloudUpload />
@@ -89,15 +120,15 @@ function RightHeader() {
             ) : (
                 <>
                     <Button text>Tải lên</Button>
-                    <Button primary>Đăng nhập</Button>
+                    <Button primary onClick={handleClickLoginBtn}>
+                        Đăng nhập
+                    </Button>
                 </>
             )}
 
-            <Menu items={userLogged ? userItem : MENU_ITEMS} onChange={handleMenuChange}>
-                {userLogged ? (
-                    <img className={styles.avatar}
-                    src={url}
-                    alt="Nguyen Van A"/>
+            <Menu items={userLogged.id ? userItem : MENU_ITEMS} onChange={handleMenuChange}>
+                {userLogged.id ? (
+                    <img className={styles.avatar} src={userLogged.avatar} alt={userLogged.username} />
                 ) : (
                     <button className={styles.moreBtn}>
                         <FaEllipsisV />
