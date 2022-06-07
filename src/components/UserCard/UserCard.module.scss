@@ -1,0 +1,61 @@
+@import '../../scss/mixin';
+@import '../../scss/variable';
+
+.userCard {
+    width: 315px;
+    height: 175px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 4px;
+    z-index: 99;
+    box-shadow: 0 1px 5px #d1cece;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    @include mobile {
+        display: none;
+    }
+
+    &Content {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    &Link {
+
+    }
+
+    &Title {
+        @include textStyle(1.6rem, $black-color, 700);
+        margin-top: 16px;
+    }
+
+    &Description {
+        @include textStyle(1.2rem, $light-gray, 400);
+        margin-top: 4px;
+    }
+
+    &FollowBtn {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    &CountInfos {
+        @include textStyle(1.6rem, $light-gray, 400);
+        margin-top: 12px;
+        margin-top: 16px;
+        display: flex;
+}
+
+    &FollowersCount {
+
+    }
+
+    &LikesCount{
+
+    }
+}
+

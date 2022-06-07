@@ -1,0 +1,83 @@
+@import '../../../scss/variable';
+@import '../../../scss/mixin';
+
+.sidebarFooter {
+    padding: 16px 0 0 8px;
+    position: relative;
+
+    @include tablet {
+        display: none;
+    }
+
+    &More,
+    &List {
+        margin-bottom: 8px;
+        padding: 2px 0;
+    }
+
+    &CopyRight,
+    &MoreText,
+    &Link {
+        @include textStyle(1.2rem, $gray, 600);
+        margin: 5px 6px 0 0;
+        line-height: 1.6;
+        cursor: pointer;
+    }
+
+    &Link:hover {
+        text-decoration: underline;
+    }
+
+    &More {
+        position: relative;
+
+        &Rule {
+            width: 200px;
+            height: 90px;
+            background: #fff;
+            box-shadow: 0 1px 5px #d1cece;
+            border-radius: 4px;
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 0;
+            display: none;
+
+            &Link {
+                height: 100%;
+                width: 100%;
+                @include textStyle(1.6rem, $black-color, 500);
+                padding: 12px;
+                line-height: 1.2;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            &Link:hover {
+                color: $dark-red;
+            }
+        }
+        &Rule::after {
+            content: "";
+            border: 12px solid ;
+            border-color: #fff transparent transparent transparent;
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+        }
+    }
+
+    &More:hover &MoreRule{
+        display: block;
+    }
+
+
+    &CopyRight {
+        display: block;
+        padding-top: 8px;
+    }
+}
+
+.sidebarFooter::before {
+    @include horizontalLine();    
+}

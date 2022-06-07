@@ -1,0 +1,11 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+.numFollowers {
+    margin-right: 12px;
+    @include textStyle(1.6rem, rgba(18, 18, 18, .75), 400);
+    &Text {
+        font-size: 1.8rem;
+        color: rgba(18, 18, 18, .75);
+    }
+}

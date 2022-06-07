@@ -1,0 +1,16 @@
+@import '../../../scss/variable';
+@import '../../../scss/mixin';
+
+.wrapper {
+    @include mobile {
+        display: none;
+    }
+}
+
+.followBtn {
+    min-width: 104px;
+    height: 36px;
+    background: #fff;
+    color: $dark-red;
+    border: 1px solid $dark-red;
+}

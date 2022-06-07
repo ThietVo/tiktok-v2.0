@@ -1,0 +1,37 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+.wrapper {
+    position: relative; 
+    width: $sidebar-width;
+    
+    // @include tablet {
+    //     width: 72px;
+    // }
+
+    // @include mobile {
+    //     display: none;
+    // }
+}
+
+.sidebar {
+    position: fixed;
+    top: $header-height;
+    bottom: 0;
+    width: $sidebar-width;
+    
+    padding: 20px 8px 26px;
+    background: #fff; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+
+    @include tablet {
+        width: 72px;
+        border-right: 1px solid rgba(22, 24, 35, 0.12);
+    }
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 0;
+}

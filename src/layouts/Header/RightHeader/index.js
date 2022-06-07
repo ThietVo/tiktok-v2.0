@@ -108,7 +108,6 @@ function RightHeader() {
         dispatch(modalSlice.actions.setModalLogin(true));
     };
 
-    console.log(userLogged.id);
     return (
         <div className={styles.wrapper}>
             {userLogged.id ? (

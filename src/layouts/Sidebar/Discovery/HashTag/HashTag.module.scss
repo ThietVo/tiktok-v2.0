@@ -1,0 +1,27 @@
+@import '../../../../scss/variable';
+@import '../../../../scss/mixin';
+
+.hashtag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 10px;
+    margin: 0 8px 12px 0;
+    @include textStyle(1.4rem, $light-gray, 400);
+    width: fit-content;
+    max-width: 100%;
+
+    border: 1px solid rgba(22, 24, 35, 0.2);
+    border-radius: 12px;
+
+    &Text {
+        margin-left: 6px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.hashtag:hover {
+    background: $bg-hover-color;
+}

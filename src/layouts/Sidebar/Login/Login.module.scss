@@ -1,0 +1,25 @@
+@import '../../../scss/variable';
+@import '../../../scss/mixin';
+
+.sidebarLogin {
+    padding: 20px 8px 24px;
+    position: relative;
+
+    @include tablet {
+        display: none;
+    }
+
+    &Tip {
+        font-size: 1.6rem;
+        color: $light-gray ;
+        line-height: 1.5;
+    }
+
+    &Btn {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+.sidebarLogin::before {
+    @include horizontalLine();
+}

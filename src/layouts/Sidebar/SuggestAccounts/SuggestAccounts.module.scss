@@ -1,0 +1,96 @@
+@import '../../../scss/mixin';
+@import '../../../scss/variable';
+
+.wrapper {
+    width: 100%;
+    padding: 16px 0;
+    position: relative;
+}
+.header {
+    @include textStyle(1.4rem, $gray, 600);
+    padding: 0 8px;
+    margin-bottom: 8px;
+
+    @include tablet {
+        display: none;
+    }
+}
+
+.action {
+    @include tablet {
+        display: none;
+    }
+}
+
+.seeAll {
+    padding: 0 8px;
+    margin-top: 12px;
+    @include textStyle(1.4rem, $dark-red, 600);
+    cursor: pointer;
+}
+
+.wrapper::before {
+    @include horizontalLine();
+}
+
+.tabletAction {
+    display: none;
+
+    padding: 8px 15px 8px 8px;
+    width: 100%;
+    font-size: 2.4rem;
+    text-align: center;
+    cursor: pointer;
+    color: rgba(22, 24, 35, 0.5);
+
+    @include tablet {
+        display: block;
+    }
+}
+
+//SuggestAccountItem
+.user {
+    width: 100%;
+    position: relative;
+
+    &Link {
+        padding: 8px;
+        display: flex;
+        align-items: center;
+    }
+
+    &Link:hover {
+        background: $bg-hover-color;
+    }
+
+    &Content {
+        margin-left: 12px;
+
+        @include tablet {
+            display: none;
+        }
+
+        &Title {
+            width: 100%;
+            @include textStyle(1.6rem, $black-color, 700);            
+            line-height: 22px;
+            margin-top: -3px;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &Description {
+            @include textStyle(1.2rem, $light-gray, 400);
+            line-height: 15px;
+        }
+    }
+
+    &Card {
+        @include tablet {
+            display: none;
+        }
+    }
+
+}
