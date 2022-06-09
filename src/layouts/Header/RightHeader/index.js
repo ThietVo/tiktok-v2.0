@@ -62,7 +62,7 @@ function RightHeader() {
                     // getLikedVideosOfUser(currentUser.uid).then((result) => {
                     //   dispatch(likedVideosSlice.actions.setLikedVideos(result));
                     // });
-                }, 1000);
+                }, 500);
             }
         });
     }, [dispatch]);

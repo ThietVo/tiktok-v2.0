@@ -1,0 +1,14 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+.following {
+    width: 720px;
+    padding: 24px 0;
+    margin-right: 24px;
+
+    @include mobile {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}

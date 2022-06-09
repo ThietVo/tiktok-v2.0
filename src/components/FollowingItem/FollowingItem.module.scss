@@ -1,0 +1,51 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+.followingItem {
+    height: 302px;
+    width: 226px;
+    margin-right: 7px;
+    margin-left: 7px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    background: rgb(211, 208, 208);
+    overflow: hidden;
+    position: relative;
+    float: left;
+
+    &Video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &Info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 16px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+
+        &Description {
+            text-align: center;
+            margin-top: 14px;
+            margin-bottom: 8px;
+        }
+
+        &Title {
+            @include textStyle(1.8rem,#fff,700);
+            margin-bottom: 8px;
+        }
+        &SubTitle {
+            @include textStyle(1.4rem,#fff,600);
+        }
+    }
+    
+
+    &Btn {
+        min-width: 164px;
+    }
+}

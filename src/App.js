@@ -5,6 +5,7 @@ import { MainLayout } from '~/layouts';
 import { Fragment } from 'react';
 
 function App() {
+
     return (
         <GlobalStyles>
             <Router>
