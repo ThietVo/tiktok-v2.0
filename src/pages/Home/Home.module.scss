@@ -1,0 +1,14 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+.homeMain {
+    width: $main-content-width;
+    padding: 24px 0;
+    margin: 0 16px;
+
+    @include mobile {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}

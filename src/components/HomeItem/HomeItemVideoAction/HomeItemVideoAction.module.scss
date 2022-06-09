@@ -1,0 +1,43 @@
+@import '../../../scss/variable';
+@import '../../../scss/mixin';
+
+.videoAction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    &Btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 8px 0 6px;
+        border: none;
+        background: none;
+        
+        & strong {
+            margin-top: 4px;
+            @include textStyle(1.2rem, $light-gray, 600);
+
+            @include mobile {
+                color: #fff;
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    &Icon {
+        width: 48px;
+        height: 48px;
+        line-height: 58px;
+        font-size: 24px;
+        border-radius: 50%;
+        background-color: rgba(22, 24, 35, 0.06);
+        border: none;
+
+        @include mobile {
+            color: #fff;
+            font-size: 3rem;
+        }
+    }
+}

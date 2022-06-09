@@ -1,0 +1,80 @@
+@import '../../../scss/variable';
+@import '../../../scss/mixin';
+
+.wrapper {
+    position: relative;
+    margin-right: 20px;
+}
+.video {
+    height: calc(450px + (100vw - 768px) / 1152 * 100);
+    width: 282px;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+
+    & video {
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+}
+
+.videoControls{
+    padding: 0 20px 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    &PlayBtn {
+        height: 40px;
+        font-size: 30px;
+        color: #fff;
+        border: none;
+        background: transparent;
+    }   
+
+    &Volume {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transform: rotate(-90deg);
+
+        &Btn {
+            font-size: 24px;
+            color: #fff;
+            background: transparent;
+            border: none;
+            transform: rotate(90deg);
+        }
+
+        
+        &Slider {
+            padding: 10px;
+            background: rgba(49, 49, 49, 0.3);
+            border-radius: 12px;
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translateY(-70%);
+            display:flex;
+            align-items: center;
+
+            & input {
+            -webkit-appearance: none;
+            height: 3px;
+            width: 50px;
+            }
+            & input::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                background: #fff;
+                width: 12px; 
+                height: 12px;
+                border-radius: 50%;
+            }
+        }
+    }
+}   

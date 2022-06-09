@@ -1,0 +1,142 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+.homeMainItem {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(22, 24, 35, 0.12);
+    width: 100%;
+    display: flex;
+    position: relative;
+
+    @include mobile {
+        display: none;
+        border: none;
+    }
+
+    &FollowBtn{
+        height: 28px;
+        min-width: 88px;
+        color: $dark-red;
+        background: #fff;
+        border: 1px solid $dark-red;
+        min-width: 120px;
+    }
+
+    &Content {
+        margin-left: 12px;
+        flex: 1;
+
+        &Header {
+            position: relative;
+            width: 100%;
+        }
+
+        &Author {
+            padding-top: 4px;
+            display: flex;
+            align-items: center;
+
+            &Title {
+                @include textStyle(1.8rem, $black-color, 700);
+            }
+            &Title:hover {
+                text-decoration: underline;
+            }
+            &Name {
+                @include textStyle(1.4rem, $black-color, 400);
+            }
+        }
+
+        &Description {
+            @include textStyle(1.6rem, $black-color, 400);
+            width: 100%;
+            line-height: 1.3;
+            margin-top: 4px;
+            margin-bottom: 8px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &Music ,
+        &Hashtag {
+            @include textStyle(1.6rem, $black-color, 600);
+            margin-right: 8px;
+        }
+        &Hashtag:hover {
+            text-decoration: underline;
+        }
+
+        &Music {
+            &Icon {
+                margin-right: 8px;
+            }
+        }
+        &Music:hover {
+            text-decoration: underline;
+        }
+        &VideoWrapper {
+            margin-top: 16px;
+            display: flex;
+        }
+    }
+}
+
+.mobileItem {
+    @include pc {
+        display: none;
+    }
+
+    @include tablet {
+        display: none;
+    }
+    position: relative;
+    &Video {
+        height: calc(100vh - 49px);
+        width: 100%;
+        text-align: center;
+        background: rgba(10, 10, 10, 0.9);
+
+        & video {
+            height: 100%;
+            width: 310px;
+        }
+    }
+
+    &Info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        color: #fff;
+        padding-left: 12px;
+        padding-bottom: 12px;
+        &Author {
+            display: flex;
+            & h4 {
+                @include textStyle(1.7rem, #fff, 600);
+                margin-bottom: 8px;
+            }
+        }
+
+        &Description {
+            @include textStyle(1.5rem, #fff, 400);
+            margin-bottom: 8px;
+        }
+
+        &Music {
+            @include textStyle(1.5rem, #fff, 400);
+            &Icon {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    &Action {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        margin-right: 12px;
+    }
+}

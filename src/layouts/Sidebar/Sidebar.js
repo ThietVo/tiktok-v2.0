@@ -15,7 +15,7 @@ function Sidebar() {
         <div className={styles.wrapper}>
             <div className={styles.sidebar}>
                 <Navigation />
-                <Login />
+                {!userLogged.id && <Login />}
                 <SuggestAccounts />
                 {userLogged.id && <FollowingAccounts />}
                 <Discovery />
