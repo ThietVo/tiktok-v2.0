@@ -16,7 +16,7 @@ import styles from './RightHeader.module.scss';
 import modalSlice from '~/redux/modalSlice';
 import { getUserApi } from '~/callApi/usersApi';
 import userLoginSlice from '~/redux/userLoginSlice';
-import { userLoginSelector } from '~/redux/selector';
+import { userLoginSelector } from '~/redux/selectors';
 
 const MENU_ITEMS = [
     {
@@ -66,7 +66,6 @@ function RightHeader() {
             }
         });
     }, [dispatch]);
-    
 
     const { userLogged } = useSelector(userLoginSelector); //get redux
     // Handle logic
@@ -118,7 +117,9 @@ function RightHeader() {
                 </Tippy>
             ) : (
                 <>
-                    <Button text>Tải lên</Button>
+                    <Button text onClick={() => dispatch(modalSlice.actions.setModalLogin(true))}>
+                        Tải lên
+                    </Button>
                     <Button primary onClick={handleClickLoginBtn}>
                         Đăng nhập
                     </Button>

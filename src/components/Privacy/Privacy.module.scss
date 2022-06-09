@@ -1,0 +1,70 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+.privacy {
+    &Selection {
+        &Desc {
+            @include textStyle(1.6rem, rgba(22,24,35,1), 500);
+            margin-bottom: 8px;
+        }
+        & select {
+            padding: 0 12px;
+            width: 300px;
+            height: 36px;
+            @include textStyle(1.6rem, rgb(22, 24, 35), 400);
+            border: 1px solid rgba(22, 24, 35, 0.12);
+        }
+    }
+
+    &Switch {
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        &Desc {
+            @include textStyle(1.6rem, rgba(22,24,35,1), 500);
+        }
+
+        &Btn {
+            margin-left: 24px;
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+            &Input {
+                display: none;
+            }
+
+            &Input:checked + &Slider {
+                background: $dark-red;
+            }
+
+            &Input:checked + &Slider::before {
+                transform: translateX(16px);
+            }
+
+        &Slider {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 12px;
+        }
+
+        &Slider::before {
+            position: absolute;
+            left: 4px;
+            bottom: 2px;
+            content: "";
+            height: 20px;
+            width: 20px;
+            background: #fff;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+        }
+    }
+}

@@ -5,7 +5,7 @@ import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import styles from "./FollowingAccounts.module.scss";
 import FollowingAccountItem from "./FollowingAccountItem";
 import { getUserApi } from "~/callApi/usersApi";
-import { userLoginSelector } from "~/redux/selector";
+import { userLoginSelector } from "~/redux/selectors";
 
 function FollowingAccounts() {
   const { userLogged } = useSelector(userLoginSelector);

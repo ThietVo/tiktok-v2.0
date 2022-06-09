@@ -5,7 +5,7 @@ import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import SuggestAccountItem from './SuggestAccountItem';
 import styles from './SuggestAccounts.module.scss';
 import { getUsersApi } from '~/callApi/usersApi';
-import { userLoginSelector } from '~/redux/selector';
+import { userLoginSelector } from '~/redux/selectors';
 
 function SuggestAccounts() {
     const [userList, setUserList] = useState([]);

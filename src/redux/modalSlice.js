@@ -4,7 +4,7 @@ export default createSlice({
     name: 'modal',
     initialState: {
         showModalLogin: false,
-        // showModalUpload: false,
+        showModalUpload: false,
         // showModalVideoDetail: false,
         // showModalDeleteComment: false,
         // showModalDeleteVideo: false,
@@ -16,9 +16,9 @@ export default createSlice({
         setModalLogin: (state, action) => {
             state.showModalLogin = action.payload
         },
-        // setModalUpload: (state, action) => {
-        //     state.showModalUpload = action.payload
-        // },
+        setModalUpload: (state, action) => {
+            state.showModalUpload = action.payload
+        },
         // setModalVideoDetail: (state, action) => {
         //     state.showModalVideoDetail = action.payload
         // },

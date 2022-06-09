@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { userLoginSelector } from '~/redux/selector';
+import { userLoginSelector } from '~/redux/selectors';
 import Discovery from './Discovery';
 import FollowingAccounts from './FollowingAccounts';
 import Footer from './Footer';

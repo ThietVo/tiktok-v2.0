@@ -1,0 +1,41 @@
+@import "../../../scss/mixin";
+@import "../../../scss/variable";
+
+.modalUpload {
+  padding: 30px;
+}
+
+.modalUploading {
+  text-align: center;
+  @include textStyle(1.8rem, $black-color, 700);
+}
+
+.modalUploaded {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  &Info {
+    text-align: center;
+    line-height: 1.2;
+    @include textStyle(1.6rem, $black-color, 500);
+    margin-bottom: 10px;
+  }
+  &Link,
+  &Btn {
+    width: 100%;
+    padding: 16px 0;
+    border: 1px solid rgb(235, 232, 232);
+    @include textStyle(1.4rem, $dark-red, 500);
+    background: #fff;
+    border-left: none;
+    border-right: none;
+  }
+
+  &Link {
+    text-align: center;
+    @include textStyle(1.4rem, $black-color, 500);
+    width: 100%;
+  }
+}
