@@ -9,7 +9,7 @@ function FollowingAccountItem({ user }) {
 
   return (
     <div className={styles.user}>
-      <Link to={`${user.id}`} className={styles.userLink}>
+      <Link to={`/@${user.tiktokid}`} className={styles.userLink}>
         <Avatar urlImg={user.avatar} avatarSmall />
 
         <div className={styles.userContent}>

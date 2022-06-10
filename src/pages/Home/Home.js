@@ -6,13 +6,13 @@ import HomeItem from '~/components/HomeItem';
 // import sidebarUserListSlice from "../../redux/sidebarUserListSlice";
 import videosSlice from '~/redux/videosSlice';
 import { getVideosWithUsersApi } from '~/callApi/videosApi';
-import { userLoginSelector } from '~/redux/selectors';
+import { usersSelector } from '~/redux/selectors';
 // import sidebarSlice from "../../redux/sidebarSlice";
 // import MobileHeader from "../MobileResponsive/MobileHeader";
 
 function Home() {
     const dispatch = useDispatch();
-    const { userLogged } = useSelector(userLoginSelector);
+    const { userLogged } = useSelector(usersSelector);
     const [videosWithUsers, setVideosWithUsers] = useState([]);
 
     useEffect(() => {

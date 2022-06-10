@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-import userLoginSlice from '~/redux/userLoginSlice';
+import usersSlice from '~/redux/usersSlice';
 
 function LogOut() {
     const navigate = useNavigate();
@@ -12,7 +12,7 @@ function LogOut() {
     useEffect(() => {
         signOut(auth);
         navigate('/');
-        dispatch(userLoginSlice.actions.setUserLogin(''))
+        dispatch(usersSlice.actions.setUserLogin(''))
     }, [])
     // dispatch(sidebarSlice.actions.setShowSidebar(true));
     return ( <></> );

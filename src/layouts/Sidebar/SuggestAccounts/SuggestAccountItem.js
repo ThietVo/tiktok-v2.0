@@ -27,7 +27,7 @@ function SuggestAccountItem({ user }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Link to={`${user.id}`} className={styles.userLink} key={user.id}>
+      <Link to={`/@${user.tiktokid}`} className={styles.userLink} key={user.id}>
         <Avatar urlImg={user.avatar} avatarSmall />
 
         <div className={styles.userContent}>

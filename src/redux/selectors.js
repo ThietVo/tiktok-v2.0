@@ -1,4 +1,4 @@
-export const userLoginSelector = (state) => state.userLogin;
+export const usersSelector = (state) => state.users;
 
 export const modalSelector = (state) => state.modal;
 

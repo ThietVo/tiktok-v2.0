@@ -5,7 +5,7 @@ import styles from './Following.module.scss';
 import FollowingItem from '~/components/FollowingItem';
 import HomeItem from '~/components/HomeItem';
 import { getUsersWithVideosApi } from '~/callApi/usersApi';
-import { userLoginSelector } from '~/redux/selectors';
+import { usersSelector } from '~/redux/selectors';
 // import sidebarUserListSlice from "~/redux/sidebarUserListSlice";
 import { getVideoWithUserByUserIdApi } from '~/callApi/videosApi';
 import videosSlice from '~/redux/videosSlice';
@@ -15,7 +15,7 @@ import videosSlice from '~/redux/videosSlice';
 function Following() {
     const [userVideoList, setUserVideoList] = useState([]);
     const dispatch = useDispatch();
-    const { userLogged } = useSelector(userLoginSelector);
+    const { userLogged } = useSelector(usersSelector);
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {

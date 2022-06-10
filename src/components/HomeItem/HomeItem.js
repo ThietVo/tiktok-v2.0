@@ -10,6 +10,7 @@ import HomeItemVideoAction from "./HomeItemVideoAction";
 import UserCard from "../UserCard";
 import FollowButton from "~/components/Button/FollowButton";
 import { useDispatch } from "react-redux";
+import usersSlice from "~/redux/usersSlice";
 
 function HomeItem({ index, user, video, FollowBtn }) {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ function HomeItem({ index, user, video, FollowBtn }) {
               onMouseLeave={handleMouseLeave}
             >
               <Link
-                to={FollowBtn ? `${user.id}` : `../${user.id}`} //FollowBtn = true -> Homepage, =false -> followingpage
+                to={FollowBtn ? `@${user.tiktokid}` : `../@${user.tiktokid}`} //FollowBtn = true -> Homepage, =false -> followingpage
                 className={styles.homeMainItemContentAuthor}
               >
                 <h3 className={styles.homeMainItemContentAuthorTitle}>

@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { storage } from "~/firebase";
 import styles from "./Upload.module.scss";
-import { uploadSelector, userLoginSelector } from '~/redux/selectors';
+import { uploadSelector, usersSelector } from '~/redux/selectors';
 import { useDispatch, useSelector } from "react-redux";
 import modalSlice from "~/redux/modalSlice";
 import uploadSlice from "~/redux/uploadSlice";
@@ -18,7 +18,7 @@ function Upload() {
   const dispatch = useDispatch();
   const [video, setVideo] = useState();
   const [descriptionVideo, setDescriptionVideo] = useState("1");
-  const { userLogged } = useSelector(userLoginSelector);
+  const { userLogged } = useSelector(usersSelector);
   const { hasPublic, hasComment, uploaded } = useSelector(uploadSelector);
   let urlFirebaseVideo = "";
 

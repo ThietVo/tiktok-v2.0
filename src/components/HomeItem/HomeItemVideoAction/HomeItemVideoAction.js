@@ -4,7 +4,7 @@ import { FaCommentDots, FaShare } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { userLoginSelector } from "~/redux/selectors";
+import { usersSelector } from "~/redux/selectors";
 import modalSlice from "~/redux/modalSlice";
 import styles from "./HomeItemVideoAction.module.scss";
 import Heart from '~/components/Heart';
@@ -14,7 +14,7 @@ import videosSlice from "~/redux/videosSlice";
 function HomeItemVideoAction({ index, user, video }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { userLogged } = useSelector(userLoginSelector);
+  const { userLogged } = useSelector(usersSelector);
   const [ comments, setComments ] = useState([])
 
   useEffect(() => {

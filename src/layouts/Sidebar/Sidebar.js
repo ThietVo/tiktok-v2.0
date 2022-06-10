@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { userLoginSelector } from '~/redux/selectors';
+import { usersSelector } from '~/redux/selectors';
 import Discovery from './Discovery';
 import FollowingAccounts from './FollowingAccounts';
 import Footer from './Footer';
@@ -10,7 +10,7 @@ import styles from './Sidebar.module.scss';
 import SuggestAccounts from './SuggestAccounts';
 
 function Sidebar() {
-    const { userLogged } = useSelector(userLoginSelector);
+    const { userLogged } = useSelector(usersSelector);
     return (
         <div className={styles.wrapper}>
             <div className={styles.sidebar}>

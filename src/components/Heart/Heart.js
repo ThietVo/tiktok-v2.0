@@ -11,12 +11,12 @@ import clsx from "clsx";
 // } from "~/callApi/likedVideosApi";
 // import likedVideosSlice from "~/redux/likedVideosSlice";
 // import modalSlice from "~/redux/modalSlice";
-// import { likedVideosSelector, userLoginSelector } from "~/redux/selectors";
+// import { likedVideosSelector, usersSelector } from "~/redux/selectors";
 import styles from "./Heart.module.scss";
 
 function Heart({ video, styleHeart }) {
   // const dispatch = useDispatch();
-  // const { userLogged } = useSelector(userLoginSelector);
+  // const { userLogged } = useSelector(usersSelector);
 
   // const { likedVideos } = useSelector(likedVideosSelector);
   const [numLikes, setNumLikes] = useState(0);

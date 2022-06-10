@@ -1,0 +1,25 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+
+.alert {
+    text-align: center;
+    margin-top: 50px;
+    &Icon {
+        font-size: 7rem;
+        opacity: 0.4;
+    }
+    & h2 {
+        margin-top: 40px;
+        margin-bottom: 16px;
+        @include textStyle(2.4rem, $black-color, 700);
+    }
+    & h4 {
+        @include textStyle(1.6rem, $light-gray, 400);
+    }
+}
+
+.likedVideos {
+    display: flex;
+    flex-wrap: wrap;
+}

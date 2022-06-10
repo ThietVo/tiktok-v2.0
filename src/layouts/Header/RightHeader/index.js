@@ -15,8 +15,8 @@ import Menu from '~/components/Popper/Menu/Menu';
 import styles from './RightHeader.module.scss';
 import modalSlice from '~/redux/modalSlice';
 import { getUserApi } from '~/callApi/usersApi';
-import userLoginSlice from '~/redux/userLoginSlice';
-import { userLoginSelector } from '~/redux/selectors';
+import usersSlice from '~/redux/usersSlice';
+import { usersSelector } from '~/redux/selectors';
 
 const MENU_ITEMS = [
     {
@@ -57,7 +57,7 @@ function RightHeader() {
             //if logged -> send id logged to redux
             if (currentUser) {
                 setTimeout(() => {
-                    getUserApi(currentUser.uid).then((result) => dispatch(userLoginSlice.actions.setUserLogin(result)));
+                    getUserApi(currentUser.uid).then((result) => dispatch(usersSlice.actions.setUserLogin(result)));
                     //get list videos liked by userLogged and dispatch to redux
                     // getLikedVideosOfUser(currentUser.uid).then((result) => {
                     //   dispatch(likedVideosSlice.actions.setLikedVideos(result));
@@ -67,7 +67,7 @@ function RightHeader() {
         });
     }, [dispatch]);
 
-    const { userLogged } = useSelector(userLoginSelector); //get redux
+    const { userLogged } = useSelector(usersSelector); //get redux
     // Handle logic
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -82,7 +82,7 @@ function RightHeader() {
         {
             icon: <AiOutlineUser />,
             title: 'Xem hồ sơ',
-            to: '/@hoaa',
+            to: `/@${userLogged.tiktokid}`,
         },
         {
             icon: <FaTiktok />,

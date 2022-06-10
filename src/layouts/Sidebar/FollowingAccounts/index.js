@@ -5,10 +5,10 @@ import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import styles from "./FollowingAccounts.module.scss";
 import FollowingAccountItem from "./FollowingAccountItem";
 import { getUserApi } from "~/callApi/usersApi";
-import { userLoginSelector } from "~/redux/selectors";
+import { usersSelector } from "~/redux/selectors";
 
 function FollowingAccounts() {
-  const { userLogged } = useSelector(userLoginSelector);
+  const { userLogged } = useSelector(usersSelector);
   const [followingUsers, setFollowingUsers] = useState([]);
   const [show, setShow] = useState(false);
   const [lengthList, setlengthList] = useState(5);

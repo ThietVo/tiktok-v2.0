@@ -1,0 +1,99 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+.userDetail {
+    padding: 32px 12px;
+    
+    &Header {
+        max-width: 624px;
+        margin-bottom: 20px;
+
+        @include mobile {
+            margin: 0 auto 20px;
+            max-width: 400px;
+        }
+        &Card {
+            margin-left: 20px;
+            &Title {
+                @include textStyle(3.2rem, $black-color, 700);
+                margin-bottom: 14px;
+            }
+
+            &SubTitle {
+                @include textStyle(1.8rem, $black-color, 600);
+                margin-bottom: 16px;
+            }
+
+            &BtnFollow {
+                background: $dark-red;
+                height: 36px;
+                width: 180px;
+            }
+        }
+
+        &Quantity {
+            margin-top: 22px;
+            display: flex;
+
+            @include mobile {
+                justify-content: space-between;
+            }
+        }
+    
+        &Description {
+            margin-top: 10px;
+            @include textStyle(1.6rem, rgba(18, 18, 18, 1), 400);
+
+            @include mobile {
+                text-align: center;
+            }
+        }
+    }
+
+    &Body {
+        &Tab {
+            height: 44px;
+            margin-bottom: 8px;
+            width: 460px;
+            @include textStyle(1.8rem, rgba(18, 18, 18, 0.5), 600);
+            line-height: 44px;
+            display: flex;
+            border-bottom: 1px solid rgba(22, 24, 35, 0.12);
+            cursor: pointer;
+            position: relative;
+            &Video {
+                height: 100%;
+                color: rgb(18, 18, 18);
+                flex: 1;
+                text-align: center;
+                border-bottom: 3px solid #333;
+            }
+            &Liked {
+                height: 100%;
+                flex: 1;
+                text-align: center;
+            }
+            &BottomLine {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 3px;
+                width: 50%;
+                background: rgb(22, 24, 35);
+                transition: transform 0.3s ease 0s;
+            }
+        }
+    }
+}
+
+.editProfileBtn {
+    border: 1px solid rgba(22, 24, 35, 0.12);
+}
+
+.userDetailBodyTabVideo:hover ~ .userDetailBodyTabBottomLine {
+    transform: translateX(0px);
+}
+
+.userDetailBodyTabLiked:hover ~ .userDetailBodyTabBottomLine {
+    transform: translateX(230px);
+}

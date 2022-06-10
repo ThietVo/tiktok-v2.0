@@ -5,6 +5,7 @@
     width: $main-content-width;
     padding: 24px 0;
     margin: 0 16px;
+    float: right;
 
     @include mobile {
         width: 100%;

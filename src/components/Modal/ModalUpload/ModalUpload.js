@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import modalSlice from "~/redux/modalSlice";
 // import sidebarSlice from "~/redux/sidebarSlice";
 import uploadSlice from "~/redux/uploadSlice";
-import { userLoginSelector, uploadSelector } from "~/redux/selectors";
+import { usersSelector, uploadSelector } from "~/redux/selectors";
 import styles from "./ModalUpload.module.scss";
 import Modal from '~/components/Modal';
 
 function ModalUpload() {
   const dispatch = useDispatch();
-  const { userLogged } = useSelector(userLoginSelector);
+  const { userLogged } = useSelector(usersSelector);
   const { progess } = useSelector(uploadSelector);
 
   const handleUploadAnotherVideo = () => {

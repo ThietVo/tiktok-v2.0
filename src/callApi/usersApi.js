@@ -8,8 +8,8 @@ export const getUsersApi = () => {
     });
 };
 
-export const getUserApi = (useId) => {
-  return fetch(`${defaultUrl}/users/${useId}`)
+export const getUserApi = (userId) => {
+  return fetch(`${defaultUrl}/users/${userId}`)
     .then((res) => res.json())
     .catch((err) => {
       console.log(err);

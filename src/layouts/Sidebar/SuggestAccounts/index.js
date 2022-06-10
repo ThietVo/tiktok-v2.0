@@ -5,7 +5,7 @@ import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import SuggestAccountItem from './SuggestAccountItem';
 import styles from './SuggestAccounts.module.scss';
 import { getUsersApi } from '~/callApi/usersApi';
-import { userLoginSelector } from '~/redux/selectors';
+import { usersSelector } from '~/redux/selectors';
 
 function SuggestAccounts() {
     const [userList, setUserList] = useState([]);
@@ -17,7 +17,7 @@ function SuggestAccounts() {
         getUsersApi().then(res => setUserList(res));
     }, [dispatch]);
 
-    const { userLogged } = useSelector(userLoginSelector);
+    const { userLogged } = useSelector(usersSelector);
 
     const handleAction = () => {
         if (show) {

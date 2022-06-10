@@ -7,13 +7,13 @@ import Button from '~/components/Button';
 import { updateUserApi } from '~/callApi/usersApi';
 
 import modalSlice from '~/redux/modalSlice';
-import { userLoginSelector } from '~/redux/selectors';
+import { usersSelector } from '~/redux/selectors';
 
-import userLoginSlice from '~/redux/userLoginSlice';
+import usersSlice from '~/redux/usersSlice';
 
 function FollowButton({ user }) {
     const dispatch = useDispatch();
-    const { userLogged } = useSelector(userLoginSelector);
+    const { userLogged } = useSelector(usersSelector);
     const [isFollow, setIsFollow] = useState(false);
 
     useEffect(() => {
@@ -47,7 +47,7 @@ function FollowButton({ user }) {
                 followers: [...followerIds],
             };
             updateUserApi(userLogged.id, data1);
-            dispatch(userLoginSlice.actions.setUserLogin(data1));
+            dispatch(usersSlice.actions.setUserLogin(data1));
             setTimeout(() => {
                 updateUserApi(user.id, data2);
             }, 500);
