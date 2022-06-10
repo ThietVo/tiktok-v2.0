@@ -8,6 +8,9 @@ export default createSlice({
     reducers: {
         setUserLogin: (state, action) => {
             state.userLogged = action.payload;
+        },
+        updateUserLogin: (state, action) => {
+            state.userLogged = {...state.userLogged,...action.payload};
         }
     }
 })

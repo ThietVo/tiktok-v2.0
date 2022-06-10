@@ -5,10 +5,10 @@ export default createSlice({
     initialState: {
         showModalLogin: false,
         showModalUpload: false,
+        showModalEditProfile: false,
         // showModalVideoDetail: false,
         // showModalDeleteComment: false,
         // showModalDeleteVideo: false,
-        // showModalEditProfile: false,
         // showToastMessage: false,
         // showModalSetPrivacy: false
     },
@@ -19,6 +19,9 @@ export default createSlice({
         setModalUpload: (state, action) => {
             state.showModalUpload = action.payload
         },
+        setModalEditProfile: (state, action) => {
+            state.showModalEditProfile = action.payload
+        },
         // setModalVideoDetail: (state, action) => {
         //     state.showModalVideoDetail = action.payload
         // },
@@ -27,9 +30,6 @@ export default createSlice({
         // },
         // setModalDeleteVideo: (state, action) => {
         //     state.showModalDeleteVideo = action.payload
-        // },
-        // setModalEditProfile: (state, action) => {
-        //     state.showModalEditProfile = action.payload
         // },
         // setToastMessage: (state, action) => {
         //     state.showToastMessage = action.payload

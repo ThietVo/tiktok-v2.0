@@ -71,6 +71,7 @@ function RightHeader() {
     }, [dispatch]);
 
     const { userLogged } = useSelector(usersSelector); //get redux
+    
     // Handle logic
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {

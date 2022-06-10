@@ -18,6 +18,7 @@ import NumFollowers from "~/components/NumFollowers";
 import NumFollowing from "~/components/NumFollowing";
 // import ButtonEditProfile from "../Button/ButtonEditProfile";
 import Button from "~/components/Button";
+import modalSlice from "~/redux/modalSlice";
 
 function UserDetail() {
   const { tiktokid } = useParams();
@@ -68,6 +69,10 @@ function UserDetail() {
     });
   };
 
+  const handleClickEditProfileBtn = () => {
+    dispatch(modalSlice.actions.setModalEditProfile(true));
+  }
+
   return (
     <div className={styles.userDetail}>
       <div className={styles.userDetailHeader}>
@@ -87,7 +92,7 @@ function UserDetail() {
               <FollowButton user={user} />
             ) : (
               // <ButtonEditProfile />
-              <Button leftIcon={<BiEdit />} className={styles.editProfileBtn}>Sửa hồ sơ</Button>
+              <Button leftIcon={<BiEdit />} className={styles.editProfileBtn} onClick={handleClickEditProfileBtn}>Sửa hồ sơ</Button>
             )}
           </div>
         </div>
