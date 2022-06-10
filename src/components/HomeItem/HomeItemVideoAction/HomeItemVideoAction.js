@@ -27,9 +27,9 @@ function HomeItemVideoAction({ index, user, video }) {
     if (!userLogged.id) {
       dispatch(modalSlice.actions.setModalLogin(true));
     } else {
-      navigate(`${user.id}/video/${video.id}`);
+      navigate(`@${user.tiktokid}/video/${video.id}`);
       
-      // dispatch(modalSlice.actions.setModalVideoDetail(true));
+      dispatch(modalSlice.actions.setModalVideoDetail(true));
       dispatch(videosSlice.actions.setIndexCurrentVideo(index));
     }
   };

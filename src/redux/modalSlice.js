@@ -6,7 +6,7 @@ export default createSlice({
         showModalLogin: false,
         showModalUpload: false,
         showModalEditProfile: false,
-        // showModalVideoDetail: false,
+        showModalVideoDetail: false,
         // showModalDeleteComment: false,
         // showModalDeleteVideo: false,
         // showToastMessage: false,
@@ -22,9 +22,9 @@ export default createSlice({
         setModalEditProfile: (state, action) => {
             state.showModalEditProfile = action.payload
         },
-        // setModalVideoDetail: (state, action) => {
-        //     state.showModalVideoDetail = action.payload
-        // },
+        setModalVideoDetail: (state, action) => {
+            state.showModalVideoDetail = action.payload
+        },
         // setModalDeleteComment: (state, action) => {
         //     state.showModalDeleteComment = action.payload
         // },

@@ -5,8 +5,8 @@ import { BiLockAlt } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 
 import styles from "./UserDetailVideo.module.scss";
-// import modalSlice from "~/redux/modalSlice";
-// import videosSlice from "~/redux/videosSlice";
+import modalSlice from "~/redux/modalSlice";
+import videosSlice from "~/redux/videosSlice";
 
 function UserDetailVideo({ video, index }) {
     const videoRef = useRef();
@@ -21,8 +21,8 @@ function UserDetailVideo({ video, index }) {
   };
 
   const handleClick = () => {
-    // dispatch(modalSlice.actions.setModalVideoDetail(true));
-    // dispatch(videosSlice.actions.setIndexCurrentVideo(index));
+    dispatch(modalSlice.actions.setModalVideoDetail(true));
+    dispatch(videosSlice.actions.setIndexCurrentVideo(index));
   }
   return (
     <Link

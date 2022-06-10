@@ -5,6 +5,7 @@
     width: 720px;
     padding: 24px 0;
     margin-right: 24px;
+    float: right;
 
     @include mobile {
         width: 100%;

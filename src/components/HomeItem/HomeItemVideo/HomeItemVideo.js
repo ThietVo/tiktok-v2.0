@@ -66,7 +66,7 @@ function HomeItemVideo({ index, video, user }) {
   };
 
   const handleClickVideo = () => {
-    // dispatch(modalSlice.actions.setModalVideoDetail(true));
+    dispatch(modalSlice.actions.setModalVideoDetail(true));
     dispatch(videosSlice.actions.setIndexCurrentVideo(index));
   }
   
@@ -77,7 +77,7 @@ function HomeItemVideo({ index, video, user }) {
       onMouseLeave={handleUnHoverVideo}
     >
       <div className={styles.video}>
-        <Link to={`${user.id}/video/${video.id}`} onClick={handleClickVideo}>
+        <Link to={`@${user.tiktokid}/video/${video.id}`} onClick={handleClickVideo}>
           <video ref={videoRef} key={video.url} loop muted playsInline>
             <source src={video.url} type="video/mp4" />
           </video>

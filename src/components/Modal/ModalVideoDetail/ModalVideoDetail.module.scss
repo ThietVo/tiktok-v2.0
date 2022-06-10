@@ -1,0 +1,212 @@
+@import "../../../scss/variable";
+@import "../../../scss/mixin";
+@import "../../../scss/animation";
+
+.modalVideoDetail {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  animation: fadeIn linear 0.1s;
+  background: #fff;
+}
+
+.videoContainer {
+  flex: 1 1 896px;
+  padding: 0px 80px;
+  position: relative;
+  background: rgb(0, 0, 0);
+  &Video {
+    width: 100%;
+    height: 100%;
+    display: flex;    
+    background: rgba(10, 10, 10, 0.9);
+    & video {
+      // background: rgb(114, 113, 113);
+      display: block;
+      height: 100%;
+      width: 100%;
+      // width: 450px;
+      margin: auto;
+      // object-fit: contain;
+    }
+  }
+
+  &Close {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+  }
+  &Down,
+  &Up {
+    margin-right: 10px;
+    position: absolute;
+    bottom: 50%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &Down {
+    bottom: 40%;
+  }
+  &Btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(192, 189, 189, 0.342);
+    &Icon {
+      font-size: 2.4rem;
+      color: #fff;
+    }
+  }
+}
+
+.contentContainer {
+  flex: 0 0 544px;
+  // width: 544px;
+  height: 100%;
+  padding: 32px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  &Header {
+    margin: 0 32px;
+    position: relative;
+    height: 190px;
+    &Author {
+      position: relative;
+      margin-left: 10px;
+      margin-bottom: 15px;
+      &Title {
+        @include textStyle(1.8rem, $black-color, 700);
+        margin-bottom: 6px;
+      }
+      &Name {
+        @include textStyle(1.4rem, $black-color, 400);
+      }
+      &Private {
+        margin-left: 24px;
+        @include textStyle(1.4rem, $black-color, 400);
+        display: flex;
+        align-items: center;
+        &Icon {
+          color: #000;
+          margin-right: 4px;
+        }
+      }
+    }
+
+    &Description {
+      margin-bottom: 10px;
+      @include textStyle(1.6rem, $black-color, 400);
+
+      &Hashtag {
+        @include textStyle(1.6rem, $black-color, 600);
+      }
+    }
+    &Music {
+      @include textStyle(1.6rem, $black-color, 600);
+
+      &Icon {
+        margin-right: 8px;
+      }
+    }
+
+    &Action {
+      margin: 40px 0 20px;
+      display: flex;
+      &Heart {
+        margin-right: 12px;
+      }
+      &Comment {
+        background: #fff;
+        border: none;
+        display: flex;
+        align-items: center;
+        &Icon {
+          width: 32px;
+          height: 32px;
+          text-align: center;
+          line-height: 40px;
+          background: rgba(22, 24, 35, 0.06);
+          border-radius: 50%;
+          font-size: 1.8rem;
+        }
+
+        & span {
+          padding: 4px;
+          @include textStyle(1.2rem, $black-color, 400);
+        }
+      }
+    }
+
+    &Setting {
+      position: absolute;
+      top: 0;
+      right: 0;
+      &Icon {
+        cursor: pointer;
+        font-size: 2.4rem;
+      }
+      &List {
+        width: 230px;
+        position: absolute;
+        top: 25px;
+        right: 0;
+        padding: 0 10px;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(22, 24, 35, 0.22);
+        display: none;
+      }
+      &List::before {
+        content: "";
+        display: block;
+        height: 20px;
+        width: 230px;
+        background: transparent;
+        position: absolute;
+        top: -20px;
+        right: 0;
+      }
+      &Item {
+        cursor: pointer;
+        @include textStyle(1.8rem, $black-color, 700);
+        padding: 16px 10px;
+      }
+      &Item:hover {
+        color: $dark-red;
+      }
+    }
+  }
+  &Body {
+    flex: 1;
+    border-top: 1px solid rgba(18, 18, 18, 0.12);
+    border-bottom: 1px solid rgba(18, 18, 18, 0.12);
+    overflow: hidden;
+    overflow-y: scroll;
+    &NoComment {
+      height: 424px;
+      padding: 32px;
+      background: rgb(248, 248, 248);
+      @include textStyle(1.6rem, $black-color, 400);
+      text-align: center;
+    }
+  }
+}
+
+.contentContainerHeaderSetting:hover {
+  .contentContainerHeaderSettingList {
+    display: block;
+    animation: fadeIn linear 0.5s;
+  }
+}
+
+
+.btnContainer {
+  
+}

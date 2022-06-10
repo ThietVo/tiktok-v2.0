@@ -39,7 +39,7 @@ function ModalUpload() {
             </button>
   
             <Link
-              to={userLogged.id}
+              to={`../@${userLogged.tiktokid}`}
               className={styles.modalUploadedLink}
               onClick={handleViewProfile}
             >
