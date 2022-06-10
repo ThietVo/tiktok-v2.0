@@ -128,7 +128,7 @@ function UserDetail() {
           </p>
         </div>
         {active.isVideoTab && <UserDetailVideos userDetailId={user.id}/>}
-        {active.isLikedVideoTab && <UserDetailLikedVideos />}
+        {active.isLikedVideoTab && <UserDetailLikedVideos userDetailId={user.id}/>}
       </div>
     </div>
   );

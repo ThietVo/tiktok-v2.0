@@ -13,10 +13,13 @@ import { onAuthStateChanged } from 'firebase/auth';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu/Menu';
 import styles from './RightHeader.module.scss';
-import modalSlice from '~/redux/modalSlice';
 import { getUserApi } from '~/callApi/usersApi';
+import { getLikedVideosOfUser } from '~/callApi/likedVideosApi'
+
+import modalSlice from '~/redux/modalSlice';
 import usersSlice from '~/redux/usersSlice';
 import { usersSelector } from '~/redux/selectors';
+import likedVideosSlice from '~/redux/likedVideosSlice';
 
 const MENU_ITEMS = [
     {
@@ -59,9 +62,9 @@ function RightHeader() {
                 setTimeout(() => {
                     getUserApi(currentUser.uid).then((result) => dispatch(usersSlice.actions.setUserLogin(result)));
                     //get list videos liked by userLogged and dispatch to redux
-                    // getLikedVideosOfUser(currentUser.uid).then((result) => {
-                    //   dispatch(likedVideosSlice.actions.setLikedVideos(result));
-                    // });
+                    getLikedVideosOfUser(currentUser.uid).then((result) => {
+                      dispatch(likedVideosSlice.actions.setLikedVideos(result));
+                    });
                 }, 500);
             }
         });

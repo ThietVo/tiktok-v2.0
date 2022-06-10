@@ -3,6 +3,7 @@ import modalSlice from "./modalSlice";
 import usersSlice from "./usersSlice";
 import uploadSlice from "./uploadSlice";
 import videosSlice from "./videosSlice";
+import likedVideosSlice from "./likedVideosSlice";
 
 const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
         modal: modalSlice.reducer,
         upload: uploadSlice.reducer,
         videos: videosSlice.reducer,
+        likedVideos: likedVideosSlice.reducer,
     },
 });
 
