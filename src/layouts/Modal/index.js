@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import ModalDeleteComment from '~/components/Modal/ModalDeleteComment';
+import ModalDeleteVideo from '~/components/Modal/ModalDeleteVideo';
 import ModalEditProfile from '~/components/Modal/ModalEditProfile';
 import ModalLogin from '~/components/Modal/ModalLogin';
 import ModalSetPrivacy from '~/components/Modal/ModalSetPrivacy';
@@ -17,6 +18,7 @@ function Modal() {
         showModalDeleteComment,
         showToastMessage,
         showModalSetPrivacy,
+        showModalDeleteVideo
     } = useSelector(modalSelector);
     return (
         <>
@@ -27,6 +29,7 @@ function Modal() {
             {showModalDeleteComment && <ModalDeleteComment />}
             {showToastMessage && <ToastMessage />}
             {showModalSetPrivacy && <ModalSetPrivacy />}
+            {showModalDeleteVideo && <ModalDeleteVideo />}
         </>
     );
 }

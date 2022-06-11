@@ -81,7 +81,7 @@ function ModalVideoDetail() {
   };
   //handle delete video
   const handleDeleteVideo = () => {
-    // dispatch(modalSlice.actions.setModalDeleteVideo(true));
+    dispatch(modalSlice.actions.setModalDeleteVideo(true));
   };
 
   const handleSetPrivacy = () => {

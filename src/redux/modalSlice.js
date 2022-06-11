@@ -8,7 +8,7 @@ export default createSlice({
         showModalEditProfile: false,
         showModalVideoDetail: false,
         showModalDeleteComment: false,
-        // showModalDeleteVideo: false,
+        showModalDeleteVideo: false,
         showToastMessage: false,
         showModalSetPrivacy: false
     },
@@ -28,9 +28,9 @@ export default createSlice({
         setModalDeleteComment: (state, action) => {
             state.showModalDeleteComment = action.payload
         },
-        // setModalDeleteVideo: (state, action) => {
-        //     state.showModalDeleteVideo = action.payload
-        // },
+        setModalDeleteVideo: (state, action) => {
+            state.showModalDeleteVideo = action.payload
+        },
         setToastMessage: (state, action) => {
             state.showToastMessage = action.payload
         },
