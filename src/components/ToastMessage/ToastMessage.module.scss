@@ -1,0 +1,20 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+@import '../../scss/animation';
+
+.toastMessage {
+    min-width: 500px;
+    padding: 16px 0;
+    text-align: center;
+    @include textStyle(1.6rem, #fff, 600);
+    background-color: rgb(99, 97, 97);
+    opacity: 0.8;
+    position: absolute;
+    top: 20px;
+    right: 40%;
+    z-index: 999999999999999999999;
+
+    --growth-from: 0.7;
+    --growth-to: 1;
+    animation: growth linear 0.1s;
+}

@@ -1,0 +1,28 @@
+@import '../../../scss/variable';
+@import '../../../scss/mixin';
+
+.deleteComment {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 310px;
+    z-index: 9999999;
+    border-radius: 8px;
+    overflow: hidden;
+    &Text {
+        padding: 28px 24px;
+        @include textStyle(2.2rem, $black-color, 700);
+        text-align: center;
+    }
+    &Cancel,
+    &Del {
+        padding: 14px 0;
+        background: #fff;
+        @include textStyle(1.4rem, $black-color, 400);
+        border: none;
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
+    }
+    &Cancel {
+        @include textStyle(1.4rem, rgba(22, 24, 35, 0.5), 400);
+    }
+}

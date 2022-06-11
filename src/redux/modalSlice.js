@@ -7,9 +7,9 @@ export default createSlice({
         showModalUpload: false,
         showModalEditProfile: false,
         showModalVideoDetail: false,
-        // showModalDeleteComment: false,
+        showModalDeleteComment: false,
         // showModalDeleteVideo: false,
-        // showToastMessage: false,
+        showToastMessage: false,
         // showModalSetPrivacy: false
     },
     reducers: {
@@ -25,15 +25,15 @@ export default createSlice({
         setModalVideoDetail: (state, action) => {
             state.showModalVideoDetail = action.payload
         },
-        // setModalDeleteComment: (state, action) => {
-        //     state.showModalDeleteComment = action.payload
-        // },
+        setModalDeleteComment: (state, action) => {
+            state.showModalDeleteComment = action.payload
+        },
         // setModalDeleteVideo: (state, action) => {
         //     state.showModalDeleteVideo = action.payload
         // },
-        // setToastMessage: (state, action) => {
-        //     state.showToastMessage = action.payload
-        // },
+        setToastMessage: (state, action) => {
+            state.showToastMessage = action.payload
+        },
         // setModalSetPrivacy: (state, action) => {
         //     state.showModalSetPrivacy = action.payload;
         // }
