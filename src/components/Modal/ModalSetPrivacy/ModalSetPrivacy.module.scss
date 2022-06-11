@@ -1,0 +1,28 @@
+@import '../../../scss/variable';
+@import '../../../scss/mixin';
+
+.modalSetPrivacy {
+    padding: 32px 32px 0;
+    &Header {
+        @include textStyle(2.4rem, $black-color, 700);
+        margin-bottom: 32px;
+        text-align: center;
+    }
+    &Footer {
+        margin-top: 48px;
+        height: 48px;
+        font-size: 16px;
+        line-height: 48px;
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
+        text-align: center;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-around;
+        &Cancel {
+
+        }
+        &Update {
+            color: $dark-red;
+        }
+    }
+}

@@ -85,9 +85,9 @@ function ModalVideoDetail() {
   };
 
   const handleSetPrivacy = () => {
-    // dispatch(modalSlice.actions.setModalSetPrivacy(true));
-    // dispatch(uploadSlice.actions.setPublicVideo(video.hasPublic));
-    // dispatch(uploadSlice.actions.setHasCommentVideo(video.hasComment));
+    dispatch(modalSlice.actions.setModalSetPrivacy(true));
+    dispatch(uploadSlice.actions.setPublicVideo(video.hasPublic));
+    dispatch(uploadSlice.actions.setHasCommentVideo(video.hasComment));
   };
 
   const handleNextVideo = () => {

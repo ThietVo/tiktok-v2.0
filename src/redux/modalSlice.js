@@ -10,7 +10,7 @@ export default createSlice({
         showModalDeleteComment: false,
         // showModalDeleteVideo: false,
         showToastMessage: false,
-        // showModalSetPrivacy: false
+        showModalSetPrivacy: false
     },
     reducers: {
         setModalLogin: (state, action) => {
@@ -34,8 +34,8 @@ export default createSlice({
         setToastMessage: (state, action) => {
             state.showToastMessage = action.payload
         },
-        // setModalSetPrivacy: (state, action) => {
-        //     state.showModalSetPrivacy = action.payload;
-        // }
+        setModalSetPrivacy: (state, action) => {
+            state.showModalSetPrivacy = action.payload;
+        }
     }
 })
