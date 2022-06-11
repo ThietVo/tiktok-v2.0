@@ -1,2 +1,3 @@
-export { default as MainLayout } from './MainLayout/MainLayout';
-export { default as HeaderOnly } from './HeaderOnly/HeaderOnly';
+export { default as MainLayout } from './MainLayout';
+export { default as HeaderOnlyLayout } from './HeaderOnlyLayout';
+export { default as LayoutNotContainer } from './LayoutNotContainer';

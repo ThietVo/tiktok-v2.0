@@ -13,9 +13,6 @@ function Header() {
                     <Logo />
                     <Search />
                     <RightHeader />
-                        {/* <Logo />
-                        <HeaderSearch />
-                        {userLogged.id ? <HeaderRightLogged /> : <HeaderRight />} */}
                 </div>   
             </div>           
         </div>

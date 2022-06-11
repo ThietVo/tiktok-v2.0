@@ -1,12 +1,12 @@
-import Header from '~/layouts/Header/Header';
+import HeaderNotContainer from '../HeaderNotContainer';
 import Modal from '../Modal';
-import styles from './HeaderOnly.module.scss';
+import styles from './HeaderOnlyLayout.module.scss';
 
-function HeaderOnly({ children }) {
+function HeaderOnlyLayout({ children }) {
     return ( 
         <div>
             <Modal />
-            <Header />
+            <HeaderNotContainer />
             <div className={styles.container}>
                 <div className={styles.content}>
                     { children }
@@ -16,4 +16,4 @@ function HeaderOnly({ children }) {
      );
 }
 
-export default HeaderOnly;
+export default HeaderOnlyLayout;

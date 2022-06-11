@@ -1,0 +1,18 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+.container {
+    margin-top: $header-height;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: hidden;
+
+    // @include mobile {
+    //     margin-top: 0;
+    // }
+}
+
+.content {
+    margin-top: $header-height;
+    flex: 1;
+}
