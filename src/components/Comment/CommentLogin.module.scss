@@ -1,0 +1,10 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+.commentLogin {
+    height: 80px;
+    padding: 32px 0;
+    text-align: center;
+    @include textStyle(1.6rem, $dark-red, 700);
+    cursor: pointer;
+}

@@ -1,0 +1,49 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+.commentItem {
+    margin-bottom: 16px;
+    display: flex;
+    &Content {
+        flex: 1 1 auto;
+        margin-left: 16px;
+        &Username {
+            @include textStyle(1.8rem, $black-color, 700);
+        }
+        &Author{
+            margin-left: 8px;
+            @include textStyle(1.5em, $dark-red, 700);
+        }
+        &Text {
+            margin: 8px 0;
+            @include textStyle(1.6rem, $black-color, 400);
+        }
+        &Sub {
+            @include textStyle(1.4rem, rgba(22, 24, 35, 0.5), 400);
+            & button {
+                color: rgba(22, 24, 35, 0.5);
+                margin-left: 30px;
+                border: none;
+                background: #fff;
+            }
+        }
+    }
+    &Like {
+        width: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &Icon {
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+        }
+        &Text {
+            @include textStyle(1.2rem, rgba(22, 24, 35, 0.5), 400)
+        }
+    }
+    &Reply {
+        padding-left: 60px;
+    }
+}

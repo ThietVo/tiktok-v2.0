@@ -11,19 +11,19 @@ import { FaCommentDots } from "react-icons/fa";
 import Avatar from "~/components/Avatar";
 import styles from "./ModalVideoDetail.module.scss";
 import modalSlice from "~/redux/modalSlice";
-// import CommentLogin from "../Comment/CommentLogin";
-// import CommentList from "../Comment/CommentList";
+import CommentLogin from "~/components/Comment/CommentLogin";
+import CommentList from "~/components/Comment/CommentList";
 import {
-  // commentSelector,
+  commentSelector,
   usersSelector,
   videosSelector,
 } from "~/redux/selectors";
 import { useEffect, useRef, useState } from "react";
-// import { getCommentOfVideoApi } from "../../callApi/commentsApi";
-// import FormComment from "../Comment/FormComment";
-// import commentSlice from "~/redux/commentSlice";
+import { getCommentOfVideoApi } from "~/callApi/commentsApi";
+import FormComment from "~/components/Comment/FormComment";
+import commentSlice from "~/redux/commentSlice";
 import Heart from "~/components/Heart";
-// import uploadSlice from "~/redux/uploadSlice";
+import uploadSlice from "~/redux/uploadSlice";
 import videosSlice from "~/redux/videosSlice";
 import UserCard from "~/components/UserCard";
 import FollowButton from "~/components/Button/FollowButton";
@@ -33,8 +33,8 @@ function ModalVideoDetail() {
   const navigate = useNavigate();
   const { userLogged } = useSelector(usersSelector);
   const { videosWithUsers, indexCurrentVideo } = useSelector(videosSelector);
-  // const { reload } = useSelector(commentSelector);
-  // const [comments, setComments] = useState([]);
+  const { reload } = useSelector(commentSelector);
+  const [comments, setComments] = useState([]);
 
   const video = videosWithUsers[indexCurrentVideo];
   const user = videosWithUsers[indexCurrentVideo].user;
@@ -47,9 +47,9 @@ function ModalVideoDetail() {
 
   let timerId = useRef();
 
-  // useEffect(() => {
-  //   getCommentOfVideoApi(video.id).then((data) => setComments(data));
-  // }, [reload, indexCurrentVideo, videosWithUsers]);
+  useEffect(() => {
+    getCommentOfVideoApi(video.id).then((data) => setComments(data));
+  }, [reload, indexCurrentVideo, video.id]);
 
   const handleMouseEnter = () => {
     timerId.current = setTimeout(() => {
@@ -64,14 +64,14 @@ function ModalVideoDetail() {
 
   const handleCloseBtn = () => {
     dispatch(modalSlice.actions.setModalVideoDetail(false));
-    // dispatch(
-    //   commentSlice.actions.setComment({
-    //     reload: false,
-    //     parentId: null,
-    //     replyUsername: null,
-    //     commentIdToDel: null,
-    //   })
-    // );
+    dispatch(
+      commentSlice.actions.setComment({
+        reload: false,
+        parentId: null,
+        replyUsername: null,
+        commentIdToDel: null,
+      })
+    );
 
     navigate(-1);
   };
@@ -200,7 +200,7 @@ function ModalVideoDetail() {
               <div className={styles.contentContainerHeaderActionCommentIcon}>
                 <FaCommentDots />
               </div>
-              {/* <span>{comments ? comments.length : 0}</span> */}
+              <span>{comments ? comments.length : 0}</span>
             </div>
           </div>
           {/* Delete video, setting public video */}
@@ -233,21 +233,21 @@ function ModalVideoDetail() {
           <UserCard style={style} user={user} />
         </div>
         <div className={styles.contentContainerBody}>
-          {/* {video.hasComment ? (
-            <CommentList comments={comments} />
+          {video.hasComment ? (
+            <CommentList userPostVideo={user} comments={comments} />
           ) : (
             <div className={styles.contentContainerBodyNoComment}>
               Bình luận đã tắt.
             </div>
-          )} */}
+          )}
         </div>
-        {/* {!userLogged.id ? (
+        {!userLogged.id ? (
           <CommentLogin />
         ) : video.hasComment ? (
           <FormComment />
         ) : (
           ""
-        )} */}
+        )}
       </div>
     </div>
   );

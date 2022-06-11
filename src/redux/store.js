@@ -4,6 +4,7 @@ import usersSlice from "./usersSlice";
 import uploadSlice from "./uploadSlice";
 import videosSlice from "./videosSlice";
 import likedVideosSlice from "./likedVideosSlice";
+import commentSlice from "./commentSlice";
 
 const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
         upload: uploadSlice.reducer,
         videos: videosSlice.reducer,
         likedVideos: likedVideosSlice.reducer,
+        comment: commentSlice.reducer,
     },
 });
 
