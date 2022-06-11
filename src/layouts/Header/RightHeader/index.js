@@ -4,22 +4,15 @@ import { AiOutlineUser } from 'react-icons/ai';
 import { BiCloudUpload } from 'react-icons/bi';
 import Tippy from '@tippyjs/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-import { auth } from '~/firebase';
-import { onAuthStateChanged } from 'firebase/auth';
 
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu/Menu';
 import styles from './RightHeader.module.scss';
-import { getUserApi } from '~/callApi/usersApi';
-import { getLikedVideosOfUser } from '~/callApi/likedVideosApi'
 
 import modalSlice from '~/redux/modalSlice';
-import usersSlice from '~/redux/usersSlice';
 import { usersSelector } from '~/redux/selectors';
-import likedVideosSlice from '~/redux/likedVideosSlice';
+import { useState } from 'react';
 
 const MENU_ITEMS = [
     {
@@ -55,20 +48,8 @@ const MENU_ITEMS = [
 function RightHeader() {
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        onAuthStateChanged(auth, (currentUser) => {
-            //if logged -> send id logged to redux
-            if (currentUser) {
-                setTimeout(() => {
-                    getUserApi(currentUser.uid).then((result) => dispatch(usersSlice.actions.setUserLogin(result)));
-                    //get list videos liked by userLogged and dispatch to redux
-                    getLikedVideosOfUser(currentUser.uid).then((result) => {
-                      dispatch(likedVideosSlice.actions.setLikedVideos(result));
-                    });
-                }, 500);
-            }
-        });
-    }, [dispatch]);
+    const [show, setShow] = useState(false);
+    setTimeout(() => setShow(true), 1000)
 
     const { userLogged } = useSelector(usersSelector); //get redux
     
@@ -130,7 +111,7 @@ function RightHeader() {
                 </>
             )}
 
-            <Menu items={userLogged.id ? userItem : MENU_ITEMS} onChange={handleMenuChange}>
+            {show && <Menu items={userLogged.id ? userItem : MENU_ITEMS} onChange={handleMenuChange}>
                 {userLogged.id ? (
                     <img className={styles.avatar} src={userLogged.avatar} alt={userLogged.username} />
                 ) : (
@@ -138,7 +119,7 @@ function RightHeader() {
                         <FaEllipsisV />
                     </button>
                 )}
-            </Menu>
+            </Menu>}
         </div>
     );
 }

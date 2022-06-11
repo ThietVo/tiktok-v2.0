@@ -6,10 +6,9 @@ import FollowingItem from '~/components/FollowingItem';
 import HomeItem from '~/components/HomeItem';
 import { getUsersWithVideosApi } from '~/callApi/usersApi';
 import { usersSelector } from '~/redux/selectors';
-// import sidebarUserListSlice from "~/redux/sidebarUserListSlice";
 import { getVideoWithUserByUserIdApi } from '~/callApi/videosApi';
 import videosSlice from '~/redux/videosSlice';
-// import sidebarSlice from "`../..`/redux/sidebarSlice";
+import layoutSlice from '~/redux/layoutSlice';
 // import MobileHeader from "../MobileResponsive/MobileHeader";
 
 function Following() {
@@ -20,8 +19,8 @@ function Following() {
 
     useEffect(() => {
         document.title = 'Đang follow - Xem video từ những nhà sáng tạo mà bạn follow | Tiktok';
-        // dispatch(sidebarUserListSlice.actions.setShowSidebarUserList(false));
-        // dispatch(sidebarSlice.actions.setClassContainer(true));
+
+        dispatch(layoutSlice.actions.setHasClassContainer(true));
     }, []);
 
     useEffect(() => {

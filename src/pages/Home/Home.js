@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './Home.module.scss';
 import HomeItem from '~/components/HomeItem';
-// import sidebarUserListSlice from "../../redux/sidebarUserListSlice";
 import videosSlice from '~/redux/videosSlice';
 import { getVideosWithUsersApi } from '~/callApi/videosApi';
 import { usersSelector } from '~/redux/selectors';
-// import sidebarSlice from "../../redux/sidebarSlice";
+import layoutSlice from '~/redux/layoutSlice';
 // import MobileHeader from "../MobileResponsive/MobileHeader";
 
 function Home() {
@@ -22,8 +21,8 @@ function Home() {
             dispatch(videosSlice.actions.setVideosWithUsers(arr));
         });
         document.title = 'Tiktok - Make Your Day';
-        // dispatch(sidebarUserListSlice.actions.setShowSidebarUserList(true));
-        // dispatch(sidebarSlice.actions.setClassContainer(true));
+
+        dispatch(layoutSlice.actions.setHasClassContainer(true));
     }, [userLogged]);
 
     return (

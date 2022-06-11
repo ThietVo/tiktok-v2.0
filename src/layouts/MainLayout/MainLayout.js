@@ -1,14 +1,19 @@
+import clsx from 'clsx';
+import { useSelector } from 'react-redux';
 import Header from '~/layouts/Header/Header';
 import Sidebar from '~/layouts/Sidebar/Sidebar';
+import { layoutSelector } from '~/redux/selectors';
 import Modal from '../Modal';
 import styles from './MainLayout.module.scss';
 
 function MainLayout({ children }) {
+    const { hasClassContainer } = useSelector(layoutSelector);
+
     return (
         <div className={styles.wrapper}>
             <Modal />
             <Header />
-            <div className={styles.container}>
+            <div className={clsx(styles.container, {'container': hasClassContainer})}>
                 <Sidebar />
                 <div className={styles.content}>
                     { children }

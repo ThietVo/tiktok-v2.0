@@ -1,4 +1,4 @@
-import HeaderNotContainer from '../HeaderNotContainer';
+import Header from '../Header/Header';
 import Modal from '../Modal';
 import styles from './HeaderOnlyLayout.module.scss';
 
@@ -6,7 +6,7 @@ function HeaderOnlyLayout({ children }) {
     return ( 
         <div>
             <Modal />
-            <HeaderNotContainer />
+            <Header />
             <div className={styles.container}>
                 <div className={styles.content}>
                     { children }

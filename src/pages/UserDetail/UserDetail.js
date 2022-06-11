@@ -9,16 +9,15 @@ import styles from "./UserDetail.module.scss";
 import Avatar from "~/components/Avatar";
 import { filterUsersByTiktokId } from "~/callApi/usersApi";
 import { usersSelector } from "~/redux/selectors";
-// import sidebarSlice from "../../redux/sidebarSlice";
 import FollowButton from "~/components/Button/FollowButton";
 import UserDetailVideos from "./UserDetailVideos";
 import UserDetailLikedVideos from "./UserDetailLikedVideos";
 import NumLikes from "~/components/NumLikes";
 import NumFollowers from "~/components/NumFollowers";
 import NumFollowing from "~/components/NumFollowing";
-// import ButtonEditProfile from "../Button/ButtonEditProfile";
 import Button from "~/components/Button";
 import modalSlice from "~/redux/modalSlice";
+import layoutSlice from "~/redux/layoutSlice";
 
 function UserDetail() {
   const { tiktokid } = useParams();
@@ -42,8 +41,7 @@ function UserDetail() {
       setUser(result[0]);
     });
 
-    // dispatch(sidebarSlice.actions.setShowSidebar(true));
-    // dispatch(sidebarSlice.actions.setClassContainer(false));
+    dispatch(layoutSlice.actions.setHasClassContainer(false));
   }, [tiktokid]);
 
   const handleClickTabVideo = () => {

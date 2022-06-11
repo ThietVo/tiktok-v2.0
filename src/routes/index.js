@@ -7,16 +7,16 @@ import Live from '~/pages/Live';
 import Search from '~/pages/Search';
 import NotFound from '~/pages/NotFound';
 import LogOut from '~/pages/LogOut';
-import { HeaderOnlyLayout, LayoutNotContainer } from '~/layouts';
+import { HeaderOnlyLayout } from '~/layouts';
 import UserDetail from '~/pages/UserDetail';
 
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
     { path: config.routes.following, component: Following },
-    { path: config.routes.userDetail, component: UserDetail, layout: LayoutNotContainer },
+    { path: config.routes.userDetail, component: UserDetail },
     { path: config.routes.upload, component: Upload, layout: HeaderOnlyLayout },
-    { path: config.routes.live, component: Live, layout: LayoutNotContainer },
+    { path: config.routes.live, component: Live },
     { path: config.routes.search, component: Search, layout: null },
     { path: config.routes.logOut, component: LogOut, layout: null },
     { path: config.routes.notFound, component: NotFound }

@@ -10,9 +10,9 @@ import { uploadSelector, usersSelector } from '~/redux/selectors';
 import { useDispatch, useSelector } from "react-redux";
 import modalSlice from "~/redux/modalSlice";
 import uploadSlice from "~/redux/uploadSlice";
-// import sidebarSlice from "~/redux/sidebarSlice";
 import { createVideoApi } from "~/callApi/videosApi";
 import Privacy from '~/components/Privacy';
+import layoutSlice from "~/redux/layoutSlice";
 
 function Upload() {
   const dispatch = useDispatch();
@@ -23,8 +23,7 @@ function Upload() {
   let urlFirebaseVideo = "";
 
   useEffect(() => {
-    // dispatch(sidebarSlice.actions.setShowSidebar(false));
-    // dispatch(sidebarSlice.actions.setClassContainer(true));
+    dispatch(layoutSlice.actions.setHasClassContainer(false));
     //cleanup
     return () => {
       video && URL.revokeObjectURL(video.preview);
