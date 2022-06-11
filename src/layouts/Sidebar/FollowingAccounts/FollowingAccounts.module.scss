@@ -67,14 +67,24 @@
         }
 
         &Title {
+            max-width: 145px;
             @include textStyle(1.6rem, $black-color, 700);            
             line-height: 22px;
             margin-top: -3px;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         &Description {
             @include textStyle(1.2rem, $light-gray, 400);
             line-height: 15px;
+            max-width: 145px;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
         }
     }
 
