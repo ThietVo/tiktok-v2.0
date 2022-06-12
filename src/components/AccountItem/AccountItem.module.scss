@@ -4,6 +4,7 @@
     align-items: center;
     padding: 6px 16px;
     cursor: pointer;
+    background: #fff;
 
     &:hover {
         background: rgba(22, 24, 35, 0.03);
@@ -13,9 +14,17 @@
 .info {
     flex: 1;
     margin-left: 12px;
+
+    
     &Tiktokid {
         font-size: 1.6rem;
         font-weight: 500;
+
+        max-width: 155px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &Username {
@@ -23,6 +32,12 @@
         color: rgba(22, 24, 35, 0.5);
         line-height: 1;
         margin-top: 6px;
+
+        max-width: 155px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 

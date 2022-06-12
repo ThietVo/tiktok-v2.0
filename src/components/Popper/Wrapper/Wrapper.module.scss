@@ -9,4 +9,8 @@
     box-shadow: RGB(0 0 0 / 12%) 0px 2px 12px;
     display: flex;
     flex-direction: column;
+
+    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
