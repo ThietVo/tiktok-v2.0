@@ -4,13 +4,18 @@ import { FaSistrix } from 'react-icons/fa';
 import { BiLoaderCircle } from 'react-icons/bi';
 import { GrClose } from 'react-icons/gr';
 import HeadlessTippy from '@tippyjs/react/headless';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './Search.module.scss';
+import { useDebounce } from '~/hooks';
 import { Wrapper as PopperWrapper } from '~/components/Popper/Wrapper';
 import AccountItem from '~/components/AccountItem';
-import { useDebounce } from '~/hooks';
+import { useDispatch } from 'react-redux';
+import searchSlice from '~/redux/searchSlice';
+
 
 function Search() {
+    const dispatch = useDispatch();
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
@@ -19,6 +24,8 @@ function Search() {
     const debounced = useDebounce(searchValue, 500);
 
     const inputRef = useRef();
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!debounced.trim()) {
@@ -61,6 +68,14 @@ function Search() {
         setShowResult(false);
     };
 
+    const handleClickSearchBtn = () => {
+        if(searchValue){
+            navigate(`/search?q=${searchValue}`);
+            setShowResult(false);
+            dispatch(searchSlice.actions.setSearchValue(searchValue));
+        }
+    }
+
     return (
         <div className={styles.wrapper}>
             <HeadlessTippy
@@ -69,7 +84,7 @@ function Search() {
                 render={(attrs) => (
                     <div className={styles.searchResult} tabIndex="-1" {...attrs}>
                         <PopperWrapper>
-                            <h4 className={styles.searchTitle}>Accounts</h4>
+                            <h4 className={styles.searchTitle}>Tài khoản</h4>
                             {searchResult.length > 0 &&
                                 searchResult.map((user) => <AccountItem key={user.id} data={user} />)}
                         </PopperWrapper>
@@ -94,7 +109,7 @@ function Search() {
 
                     {loading && <BiLoaderCircle className={styles.searchLoading} />}
 
-                    <button className={styles.searchBtn}>
+                    <button className={styles.searchBtn} onClick={handleClickSearchBtn}>
                         <FaSistrix className={clsx(styles.searchBtnIcon)} />
                     </button>
                 </div>

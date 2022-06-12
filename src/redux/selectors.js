@@ -11,3 +11,5 @@ export const likedVideosSelector = (state) => state.likedVideos;
 export const commentSelector = (state) => state.comment;
 
 export const layoutSelector = (state) => state.layout;
+
+export const searchSeletor = (state) => state.search;

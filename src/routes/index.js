@@ -17,7 +17,7 @@ const publicRoutes = [
     { path: config.routes.userDetail, component: UserDetail },
     { path: config.routes.upload, component: Upload, layout: HeaderOnlyLayout },
     { path: config.routes.live, component: Live },
-    { path: config.routes.search, component: Search, layout: null },
+    { path: config.routes.search, component: Search },
     { path: config.routes.logOut, component: LogOut, layout: null },
     { path: config.routes.notFound, component: NotFound }
 ]

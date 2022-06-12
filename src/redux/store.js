@@ -6,6 +6,7 @@ import videosSlice from "./videosSlice";
 import likedVideosSlice from "./likedVideosSlice";
 import commentSlice from "./commentSlice";
 import layoutSlice from "./layoutSlice";
+import searchSlice from "./searchSlice";
 
 const store = configureStore({
     reducer: {
@@ -15,7 +16,8 @@ const store = configureStore({
         videos: videosSlice.reducer,
         likedVideos: likedVideosSlice.reducer,
         comment: commentSlice.reducer,
-        layout: layoutSlice.reducer
+        layout: layoutSlice.reducer,
+        search: searchSlice.reducer,
     },
 });
 

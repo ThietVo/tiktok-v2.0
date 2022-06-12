@@ -1,0 +1,59 @@
+@import '../../scss/mixin';
+@import '../../scss/variable';
+
+.wrapper {
+    padding: 16px 24px 67px 16px;
+}
+
+.header {
+    padding: 8px 0;
+    @include textStyle(1.6rem, $black-color, 700);
+}
+
+.content {
+
+}
+
+.item {
+    display: flex;
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(7, 7, 10, 0.03);
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
+
+
+
+.info {
+    flex: 1;
+    margin-left: 12px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+}
+.tiktokid {
+    @include textStyle(1.8rem, $black-color, 700);
+    margin: 8px 0;
+}
+.subTitle{
+    display: flex;
+    align-items: center;
+    @include textStyle(1.4rem, $black-color, 400);
+}
+.username {
+    margin-right: 8px;
+}
+
+.follower {
+    margin-left: 8px;
+}
+
+.description {
+    @include textStyle(1.4rem, $black-color, 400);
+    margin: 8px 0;
+}
