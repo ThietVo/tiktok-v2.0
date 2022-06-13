@@ -12,11 +12,13 @@ import { Wrapper as PopperWrapper } from '~/components/Popper/Wrapper';
 import AccountItem from '~/components/AccountItem';
 import { useDispatch } from 'react-redux';
 import searchSlice from '~/redux/searchSlice';
+import { getVideosWithUsersApi } from '~/callApi/videosApi';
 
 function Search() {
     const dispatch = useDispatch();
     const [searchValue, setSearchValue] = useState('');
-    const [searchResult, setSearchResult] = useState([]);
+    const [searchUserResult, setSearchUserResult] = useState([]);
+    const [searchVideoResult, setSearchVideoResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
 
@@ -28,7 +30,7 @@ function Search() {
 
     useEffect(() => {
         if (!debounced.trim()) {
-            setSearchResult([]);
+            setSearchUserResult([]);
             return;
         }
 
@@ -42,12 +44,17 @@ function Search() {
                         debounced !== '' &&
                         (element.tiktokid.includes(debounced) || element.username.includes(debounced)),
                 );
-                setSearchResult(arr);
+                setSearchUserResult(arr);
                 setLoading(false);
             })
             .catch((err) => {
                 setLoading(false);
             });
+        //
+        getVideosWithUsersApi().then((res) => {
+            const arr1 = res.filter((element) => debounced !== '' && element.description.includes(debounced));
+            setSearchVideoResult(arr1);
+        });
     }, [debounced]);
 
     const handleChange = (e) => {
@@ -59,7 +66,7 @@ function Search() {
 
     const handleClearSearch = () => {
         setSearchValue('');
-        setSearchResult([]);
+        setSearchUserResult([]);
         inputRef.current.focus();
     };
 
@@ -69,23 +76,24 @@ function Search() {
 
     const handleClickSearchBtn = () => {
         if (searchValue) {
-            navigate(`/search?q=${searchValue}`);
+            navigate(`/search`);
             setShowResult(false);
-            dispatch(searchSlice.actions.setSearchResult(searchResult));
+            dispatch(searchSlice.actions.setSearchUserResult(searchUserResult));
+            dispatch(searchSlice.actions.setSearchVideoResult(searchVideoResult));
         }
     };
-    
+
     return (
         <div className={styles.wrapper}>
             <HeadlessTippy
                 interactive
-                visible={showResult && searchResult.length > 0}
+                visible={showResult && searchUserResult.length > 0}
                 render={(attrs) => (
                     <div className={styles.searchResult} tabIndex="-1" {...attrs}>
                         <PopperWrapper>
                             <h4 className={styles.searchTitle}>Tài khoản</h4>
-                            {searchResult.length > 0 &&
-                                searchResult.map((user, index) => {
+                            {searchUserResult.length > 0 &&
+                                searchUserResult.map((user, index) => {
                                     return index < 5 && <AccountItem key={user.id} data={user} />;
                                 })}
                             <div className={styles.viewMore} onClick={handleClickSearchBtn}>

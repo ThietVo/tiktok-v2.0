@@ -3,11 +3,15 @@ import { createSlice } from '@reduxjs/toolkit';
 export default createSlice({
     name: 'search',
     initialState: {
-        searchResult: []
+        searchUserResult: [],
+        searchVideoResult: []
     },
     reducers: {
-        setSearchResult: (state, action) => {
-            state.searchResult = action.payload;
+        setSearchUserResult: (state, action) => {
+            state.searchUserResult = action.payload;
+        },
+        setSearchVideoResult: (state, action) => {
+            state.searchVideoResult = action.payload;
         }
     }
 }) 

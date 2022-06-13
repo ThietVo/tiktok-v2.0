@@ -2,11 +2,33 @@
 @import '../../scss/variable';
 
 .wrapper {
-    padding: 16px 24px 67px 16px;
+    padding: 0px 24px 67px 16px;
+    position: relative;
+}
+
+
+.nav {
+    @include textStyle(1.6rem, $black-color, 700);
+    display: flex;
+    border-bottom: 1px solid rgba(7, 7, 10, 0.1);
+    background: #fff;
+    // position: fixed;
+    width: 100%;
+
+    &Item {
+        width: 120px;
+        padding: 16px 0;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+.wrapperBody {
+    
 }
 
 .header {
-    padding: 8px 0;
+    padding: 12px 0;
     @include textStyle(1.6rem, $black-color, 700);
 }
 
@@ -14,11 +36,12 @@
 
 }
 
-.item {
+//userItem
+.userItem {
     display: flex;
     padding: 12px;
     cursor: pointer;
-    border-bottom: 1px solid rgba(7, 7, 10, 0.1);
+    border-bottom: 1px solid rgba(7, 7, 10, 0.08);
 
     &:hover {
         background: rgba(22, 24, 35, 0.03);
@@ -26,34 +49,91 @@
 }
 
 
-
-.info {
+.userInfo {
     flex: 1;
     margin-left: 12px;
 }
 
-.title {
+.userTitle {
     display: flex;
     align-items: center;
 }
-.tiktokid {
+.userTiktokid {
     @include textStyle(1.8rem, $black-color, 700);
     margin: 8px 0;
 }
-.subTitle{
+.userSubTitle{
     display: flex;
     align-items: center;
     @include textStyle(1.4rem, $black-color, 400);
 }
-.username {
+.userUsername {
     margin-right: 8px;
 }
 
-.follower {
+.userFollower {
     margin-left: 8px;
 }
 
-.description {
+.userDescription {
     @include textStyle(1.4rem, $black-color, 400);
     margin: 8px 0;
+}
+
+
+//videoItem
+.contentVideo {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.videoItem {
+    position: relative;
+    width: 225px;
+    margin-right: 12px;
+}
+
+.video {
+    position:relative;
+    width: 100%;
+    height: 297px;
+    
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    
+    & video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.videoTime {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    @include textStyle(1.6rem, #fff, 600);
+}
+
+.videoDescription {
+    width: 100%;
+    @include textStyle(1.6rem, rgba(22, 24, 35, 1.0), 400);
+    line-height: 1.4;
+    margin: 8px 0;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.videoInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.videoInfoTiktokid {
+    @include textStyle(1.6rem, rgba(22, 24, 35, 1.0), 400);
+    margin-left: 8px;
 }
