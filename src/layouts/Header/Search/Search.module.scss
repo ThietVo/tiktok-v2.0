@@ -56,6 +56,12 @@
     color: rgba(22, 24, 35, 0.5);
 }
 
+.viewMore {
+    @include textStyle(1.6rem, $black-color, 600);
+    padding: 16px 12px;
+    cursor: pointer;
+}
+
 .searchClear,
 .searchLoading {
     position: absolute;

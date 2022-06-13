@@ -13,7 +13,6 @@ import AccountItem from '~/components/AccountItem';
 import { useDispatch } from 'react-redux';
 import searchSlice from '~/redux/searchSlice';
 
-
 function Search() {
     const dispatch = useDispatch();
     const [searchValue, setSearchValue] = useState('');
@@ -53,10 +52,10 @@ function Search() {
 
     const handleChange = (e) => {
         //ko cho nhap dau cach dau tien
-        if(!e.target.value.startsWith(' ')){
+        if (!e.target.value.startsWith(' ')) {
             setSearchValue(e.target.value);
         }
-    }
+    };
 
     const handleClearSearch = () => {
         setSearchValue('');
@@ -69,13 +68,13 @@ function Search() {
     };
 
     const handleClickSearchBtn = () => {
-        if(searchValue){
+        if (searchValue) {
             navigate(`/search?q=${searchValue}`);
             setShowResult(false);
-            dispatch(searchSlice.actions.setSearchValue(searchValue));
+            dispatch(searchSlice.actions.setSearchResult(searchResult));
         }
-    }
-
+    };
+    
     return (
         <div className={styles.wrapper}>
             <HeadlessTippy
@@ -86,7 +85,12 @@ function Search() {
                         <PopperWrapper>
                             <h4 className={styles.searchTitle}>Tài khoản</h4>
                             {searchResult.length > 0 &&
-                                searchResult.map((user) => <AccountItem key={user.id} data={user} />)}
+                                searchResult.map((user, index) => {
+                                    return index < 5 && <AccountItem key={user.id} data={user} />;
+                                })}
+                            <div className={styles.viewMore} onClick={handleClickSearchBtn}>
+                                Xem tất cả kết quả dành cho `"{debounced}"`
+                            </div>
                         </PopperWrapper>
                     </div>
                 )}
