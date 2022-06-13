@@ -44,6 +44,7 @@
             }
             &Name {
                 @include textStyle(1.4rem, $black-color, 400);
+                margin-right: 8px;
             }
         }
 

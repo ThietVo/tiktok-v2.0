@@ -9,6 +9,7 @@ import styles from './CommentItem.module.scss';
 import { commentSelector, usersSelector } from '~/redux/selectors';
 import modalSlice from '~/redux/modalSlice';
 import { updateCommentApi } from '~/callApi/commentsApi';
+import { calculateElapsedTime } from '~/assets/jsFunc';
 
 function CommentItem({ userPostVideo, comment, replies, parentId }) {
     const { userLogged } = useSelector(usersSelector);
@@ -61,9 +62,7 @@ function CommentItem({ userPostVideo, comment, replies, parentId }) {
                     )}
                     <p className={styles.commentItemContentText}>{comment.content}</p>
                     <div className={styles.commentItemContentSub}>
-                        <span>{`${new Date(comment.createdAt).getDate()} - ${
-                            new Date(comment.createdAt).getMonth() + 1
-                        }`}</span>
+                        <span>{calculateElapsedTime(comment.createdAt)}</span>
                         <button onClick={handleReplyComment}>Trả lời</button>
                         {comment.userId === userLogged.id && <button onClick={handleDeleteComment}>Xóa</button>}
                     </div>

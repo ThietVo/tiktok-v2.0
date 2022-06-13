@@ -27,6 +27,7 @@ import uploadSlice from "~/redux/uploadSlice";
 import videosSlice from "~/redux/videosSlice";
 import UserCard from "~/components/UserCard";
 import FollowButton from "~/components/Button/FollowButton";
+import { calculateElapsedTime } from "~/assets/jsFunc";
 
 function ModalVideoDetail() {
   const dispatch = useDispatch();
@@ -140,7 +141,7 @@ function ModalVideoDetail() {
         <div className={styles.contentContainerHeader}>
           {/* avatar, tiktokid, username */}
           <Link
-            to={`/${user.id}`}
+            to={`/@${user.tiktokid}`}
             className={clsx("d-flex")}
             onClick={handleUserDetail}
             onMouseEnter={handleMouseEnter}
@@ -159,6 +160,7 @@ function ModalVideoDetail() {
                 <h4 className={styles.contentContainerHeaderAuthorName}>
                   {user.username}
                 </h4>
+                <span className={styles.contentContainerHeaderAuthorName}>. {calculateElapsedTime(video.createdAt)}</span>
                 {!video.hasPublic && (
                   <div className={styles.contentContainerHeaderAuthorPrivate}>
                     <FaLock

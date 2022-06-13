@@ -8,6 +8,7 @@ import layoutSlice from '~/redux/layoutSlice';
 import Avatar from '~/components/Avatar';
 import { searchSeletor } from '~/redux/selectors';
 import { Link } from 'react-router-dom';
+import { calculateElapsedTime } from '~/assets/jsFunc';
 
 function Search() {
     const dispatch = useDispatch();
@@ -131,9 +132,10 @@ function Search() {
                                         <video ref={videoRef} key={video.url} loop muted playsInline>
                                             <source src={video.url} type="video/mp4" />
                                         </video>
-                                        <div className={styles.videoTime}>{`${new Date(video.createdAt).getDate()} - ${
+                                        {/* <div className={styles.videoTime}>{`${new Date(video.createdAt).getDate()} - ${
                                             new Date(video.createdAt).getMonth() + 1
-                                        }`}</div>
+                                        }`}</div> */}
+                                        <div className={styles.videoTime}>{calculateElapsedTime(video.createdAt)}</div>
                                     </div>
                                     <div className={styles.videoDescription}>{video.description}</div>
                                     <div className={styles.videoInfo}>
@@ -189,9 +191,7 @@ function Search() {
                                         <video ref={videoRef} key={video.url} loop muted playsInline>
                                             <source src={video.url} type="video/mp4" />
                                         </video>
-                                        <div className={styles.videoTime}>{`${new Date(video.createdAt).getDate()} - ${
-                                            new Date(video.createdAt).getMonth() + 1
-                                        }`}</div>
+                                        <div className={styles.videoTime}>{calculateElapsedTime(video.createdAt)}</div>
                                     </div>
                                     <div className={styles.videoDescription}>{video.description}</div>
                                     <div className={styles.videoInfo}>
