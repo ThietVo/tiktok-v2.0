@@ -112,7 +112,7 @@ function Search() {
                                                         <strong>{user.followers?.length || 0}</strong> Follower
                                                     </p>
                                                 </div>
-                                                <p className={styles.userDescription}>{user.description}</p>
+                                                <p className={styles.userDescription}>{user.info}</p>
                                             </div>
                                         </Link>
                                     ),
@@ -132,9 +132,6 @@ function Search() {
                                         <video ref={videoRef} key={video.url} loop muted playsInline>
                                             <source src={video.url} type="video/mp4" />
                                         </video>
-                                        {/* <div className={styles.videoTime}>{`${new Date(video.createdAt).getDate()} - ${
-                                            new Date(video.createdAt).getMonth() + 1
-                                        }`}</div> */}
                                         <div className={styles.videoTime}>{calculateElapsedTime(video.createdAt)}</div>
                                     </div>
                                     <div className={styles.videoDescription}>{video.description}</div>

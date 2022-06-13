@@ -5,9 +5,9 @@
     position: relative; 
     width: $sidebar-width;
     
-    // @include tablet {
-    //     width: 72px;
-    // }
+    @include tablet {
+        width: 72px;
+    }
 
     // @include mobile {
     //     display: none;

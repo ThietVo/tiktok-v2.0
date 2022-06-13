@@ -8,10 +8,10 @@
     display: flex;
     position: relative;
 
-    @include mobile {
-        display: none;
-        border: none;
-    }
+    // @include mobile {
+    //     display: none;
+    //     border: none;
+    // }
 
     &FollowBtn{
         height: 28px;

@@ -6,6 +6,10 @@
     margin: 76px auto 16px;
     padding: 24px 56px;
     box-shadow: 0px 2px 8px #ede7e7;
+
+    @include tablet {
+        width: 100%;
+    }
 }
 .header {
     padding: 10px 0 20px;

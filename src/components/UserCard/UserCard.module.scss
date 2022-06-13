@@ -13,9 +13,9 @@
     top: 100%;
     left: 0;
 
-    @include mobile {
-        display: none;
-    }
+    // @include mobile {
+    //     display: none;
+    // }
 
     &Content {
         display: flex;
