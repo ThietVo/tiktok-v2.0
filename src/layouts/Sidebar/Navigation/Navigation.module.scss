@@ -6,6 +6,7 @@
     &Link {
         font-size: 1.8rem;
         font-weight: 700;
+        color: $black-color;
         padding: 8px;
         border-radius: 4px;
         display: flex;
@@ -22,6 +23,10 @@
             @include tablet {
                 display: none;
             }
+        }
+
+        &Active {
+            color: $dark-red;
         }
     }
 
