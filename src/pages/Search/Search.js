@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaChevronRight } from 'react-icons/fa';
 
 import styles from './Search.module.scss';
 import layoutSlice from '~/redux/layoutSlice';
 import Avatar from '~/components/Avatar';
 import { searchSeletor } from '~/redux/selectors';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Search() {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+
     const { searchUserResult, searchVideoResult } = useSelector(searchSeletor);
 
     const videoRef = useRef();
@@ -40,8 +40,6 @@ function Search() {
             isUserTab: false,
             isVideoTab: false,
         });
-
-        navigate('/search')
     };
 
     const handleClickUserTab = () => {
@@ -50,8 +48,6 @@ function Search() {
             isUserTab: true,
             isVideoTab: false,
         });
-
-        // navigate('/search/user')
     };
 
     const handleClickVideoTab = () => {
@@ -60,27 +56,40 @@ function Search() {
             isUserTab: false,
             isVideoTab: true,
         });
-
-        // navigate('/search/video')
     };
 
     return (
         <div className={styles.wrapper}>
             <div className={styles.nav}>
-                <div className={styles.navItem} onClick={handleClickTopTab}>
+                <div
+                    className={clsx(styles.navItem, { [styles.navItemActive]: active.isTopTab })}
+                    onClick={handleClickTopTab}
+                >
                     Top
                 </div>
-                <div className={styles.navItem} onClick={handleClickUserTab}>
+                <div
+                    className={clsx(styles.navItem, { [styles.navItemActive]: active.isUserTab })}
+                    onClick={handleClickUserTab}
+                >
                     Tài khoản
                 </div>
-                <div className={styles.navItem} onClick={handleClickVideoTab}>
+                <div
+                    className={clsx(styles.navItem, { [styles.navItemActive]: active.isVideoTab })}
+                    onClick={handleClickVideoTab}
+                >
                     Video
                 </div>
             </div>
 
             {active.isTopTab && (
                 <div className={styles.wrapperBody}>
-                    <div className={styles.header}>Tài khoản</div>
+                    <div className={styles.header}>
+                        <p className={styles.headerTitle}>Tài khoản</p>
+                        <div className={styles.headerSeeMore} onClick={handleClickUserTab}>
+                            Xem thêm
+                            <FaChevronRight  />
+                        </div>
+                    </div>
                     <div className={styles.content}>
                         {searchUserResult.length > 0 &&
                             searchUserResult.map(

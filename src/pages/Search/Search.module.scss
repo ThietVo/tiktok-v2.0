@@ -8,7 +8,7 @@
 
 
 .nav {
-    @include textStyle(1.6rem, $black-color, 700);
+    @include textStyle(1.6rem, rgba(22, 24, 35, 0.5), 700);
     display: flex;
     border-bottom: 1px solid rgba(7, 7, 10, 0.1);
     background: #fff;
@@ -20,7 +20,16 @@
         padding: 16px 0;
         text-align: center;
         cursor: pointer;
+
+        &Active {
+            border-bottom: 2px solid #000;
+            color: $black-color;
+        }
     }
+
+    // &Item:hover {
+    //     border-bottom: 2px solid #000;
+    // } 
 }
 
 .wrapperBody {
@@ -30,6 +39,16 @@
 .header {
     padding: 12px 0;
     @include textStyle(1.6rem, $black-color, 700);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &SeeMore {
+        @include textStyle(1.4rem, $black-color, 600);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
 }
 
 .content {

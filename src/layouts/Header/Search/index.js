@@ -76,7 +76,7 @@ function Search() {
 
     const handleClickSearchBtn = () => {
         if (searchValue) {
-            navigate(`/search`);
+            navigate(`/search?q=${debounced}`);
             setShowResult(false);
             dispatch(searchSlice.actions.setSearchUserResult(searchUserResult));
             dispatch(searchSlice.actions.setSearchVideoResult(searchVideoResult));
