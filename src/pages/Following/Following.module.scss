@@ -2,9 +2,10 @@
 @import '../../scss/mixin';
 
 .following {
-    width: $main-content-width;
+    // width: $main-content-width;
+    width: 100%;
     padding: 24px 16px;
-    float: right;
+    // float: right;
     
     @include mobile {
         width: 100%;

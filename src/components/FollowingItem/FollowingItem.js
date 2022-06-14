@@ -25,7 +25,7 @@ function FollowingItem({ user }) {
 
   return (
     <Link
-      to={`../${user.id}`}
+      to={`../@${user.tiktokid}`}
       target="_blank"
       rel="noopener noreferrer"
       className={styles.followingItem}
