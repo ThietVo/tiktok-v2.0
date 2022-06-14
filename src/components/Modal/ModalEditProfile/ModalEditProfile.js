@@ -63,7 +63,7 @@ function ModalEditProfile() {
             setTimeout(() => {
                 dispatch(modalSlice.actions.setModalEditProfile(false));
                 navigate(`/@${tiktokid}`);
-                navigate(0);
+                // navigate(0);
             }, 500);
         }
     };
@@ -83,10 +83,17 @@ function ModalEditProfile() {
 
             uploadTask.on(
                 'state_changed',
+                (snapshot) => {
+                  },
                 (error) => console.log(error),
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        setUrlFirebaseAvatar(downloadURL);
+                        const data = {
+                            avatar: downloadURL,
+                        };
+                        updateUserApi(userLogged.id, data);
+                        //update redex user logged
+                        dispatch(usersSlice.actions.updateUserLogin(data));
                     });
                 },
             );
@@ -103,7 +110,6 @@ function ModalEditProfile() {
     //handle update database
     const handleUploadUser = () => {
         const data = {
-            avatar: urlFirebaseAvatar,
             tiktokid: tiktokid,
             username: username,
             info: info,

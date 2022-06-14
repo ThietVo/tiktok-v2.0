@@ -39,7 +39,7 @@ function UserDetail() {
         });
 
         dispatch(layoutSlice.actions.setHasClassContainer(false));
-    }, [tiktokid]);
+    }, [tiktokid, userLogged]);
 
     const handleClickTabVideo = () => {
         setActive({
