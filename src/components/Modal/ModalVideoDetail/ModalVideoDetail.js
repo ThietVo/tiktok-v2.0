@@ -5,7 +5,7 @@ import { FaCheckCircle, FaMusic, FaLock } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { FaCommentDots } from "react-icons/fa";
 
 import Avatar from "~/components/Avatar";
@@ -31,7 +31,7 @@ import { calculateElapsedTime } from "~/assets/jsFunc";
 
 function ModalVideoDetail() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { userLogged } = useSelector(usersSelector);
   const { videosWithUsers, indexCurrentVideo } = useSelector(videosSelector);
   const { reload } = useSelector(commentSelector);
@@ -49,6 +49,7 @@ function ModalVideoDetail() {
   let timerId = useRef();
 
   useEffect(() => {
+    //get comments and sort by createdAt desc
     getCommentOfVideoApi(video.id).then((data) => setComments(data));
   }, [reload, indexCurrentVideo, video.id]);
 

@@ -23,7 +23,7 @@ function Home() {
         document.title = 'Tiktok - Make Your Day';
 
         dispatch(layoutSlice.actions.setHasClassContainer(true));
-    }, [userLogged]);
+    }, []);
 
     return (
         <div className={styles.homeMain}>

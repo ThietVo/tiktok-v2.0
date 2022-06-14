@@ -1,7 +1,7 @@
 import defaultUrl from './defaultUrl';
 
 export const getCommentOfVideoApi = (videoId) => {
-   return fetch(`${defaultUrl}/comments?videoId=${videoId}`)
+   return fetch(`${defaultUrl}/comments?videoId=${videoId}&_sort=createdAt&_order=desc`)
         .then(res => res.json())
         .catch(err => {
             console.log(err);
