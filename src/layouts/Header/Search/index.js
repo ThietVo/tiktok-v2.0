@@ -36,7 +36,7 @@ function Search() {
 
         setLoading(true);
 
-        fetch(`http://localhost:4000/users`)
+        fetch(`https://tiktok-jsonserver.herokuapp.com/users`)
             .then((res) => res.json())
             .then((res) => {
                 const arr = res.filter(
