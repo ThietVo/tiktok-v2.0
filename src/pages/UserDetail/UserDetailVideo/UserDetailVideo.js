@@ -26,7 +26,7 @@ function UserDetailVideo({ video, index }) {
     };
     return (
         <Link
-            to={`./video/${video.id}`}
+            to={`#`}
             className={styles.userDetailItem}
             onMouseEnter={handleHoverVideo}
             onMouseLeave={handleUnHoverVideo}

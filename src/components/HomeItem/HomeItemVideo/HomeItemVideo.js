@@ -77,7 +77,7 @@ function HomeItemVideo({ index, video, user }) {
       onMouseLeave={handleUnHoverVideo}
     >
       <div className={styles.video}>
-        <Link to={`@${user.tiktokid}/video/${video.id}`} onClick={handleClickVideo}>
+        <Link to={`#`} onClick={handleClickVideo}>
           <video ref={videoRef} key={video.url} loop muted playsInline>
             <source src={video.url} type="video/mp4" />
           </video>

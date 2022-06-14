@@ -12,47 +12,14 @@ import styles from './RightHeader.module.scss';
 
 import modalSlice from '~/redux/modalSlice';
 import { usersSelector } from '~/redux/selectors';
-import { useState } from 'react';
 
-const MENU_ITEMS = [
-    {
-        icon: <FaBook />,
-        title: 'Tiếng Việt',
-        children: {
-            title: 'Language',
-            data: [
-                {
-                    type: 'language',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'language',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-            ],
-        },
-    },
-    {
-        icon: <FiHelpCircle />,
-        title: 'Phản hồi và trợ giúp',
-        to: '/feedback',
-    },
-    {
-        icon: <FaKeyboard />,
-        title: 'Phím tắt trên bàn phím',
-    },
-];
+
 
 function RightHeader() {
     const dispatch = useDispatch();
 
-    const [show, setShow] = useState(false);
-    setTimeout(() => setShow(true), 1000)
-
     const { userLogged } = useSelector(usersSelector); //get redux
-    
+
     // Handle logic
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -63,6 +30,37 @@ function RightHeader() {
         }
     };
 
+    const MENU_ITEMS = [
+        {
+            icon: <FaBook />,
+            title: 'Tiếng Việt',
+            children: {
+                title: 'Language',
+                data: [
+                    {
+                        type: 'language',
+                        code: 'en',
+                        title: 'English',
+                    },
+                    {
+                        type: 'language',
+                        code: 'vi',
+                        title: 'Tiếng Việt',
+                    },
+                ],
+            },
+        },
+        {
+            icon: <FiHelpCircle />,
+            title: 'Phản hồi và trợ giúp',
+            to: '/feedback',
+        },
+        {
+            icon: <FaKeyboard />,
+            title: 'Phím tắt trên bàn phím',
+        },
+    ];
+    
     const userItem = [
         {
             icon: <AiOutlineUser />,
@@ -111,7 +109,7 @@ function RightHeader() {
                 </>
             )}
 
-            {show && <Menu items={userLogged.id ? userItem : MENU_ITEMS} onChange={handleMenuChange}>
+            <Menu items={userLogged.id ? userItem : MENU_ITEMS} onChange={handleMenuChange}>
                 {userLogged.id ? (
                     <img className={styles.avatar} src={userLogged.avatar} alt={userLogged.username} />
                 ) : (
@@ -119,7 +117,7 @@ function RightHeader() {
                         <FaEllipsisV />
                     </button>
                 )}
-            </Menu>}
+            </Menu>
         </div>
     );
 }

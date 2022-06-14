@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
+
+import { layoutSelector } from '~/redux/selectors';
 import Header from '~/layouts/Header/Header';
 import Sidebar from '~/layouts/Sidebar/Sidebar';
-import { layoutSelector } from '~/redux/selectors';
 import Modal from '../Modal';
 import styles from './MainLayout.module.scss';
 

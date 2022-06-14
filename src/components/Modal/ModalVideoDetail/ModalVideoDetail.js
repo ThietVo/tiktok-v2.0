@@ -74,7 +74,7 @@ function ModalVideoDetail() {
       })
     );
 
-    navigate(-1);
+    // navigate(-1);
   };
   //handle navigate to user detail page
   const handleUserDetail = () => {

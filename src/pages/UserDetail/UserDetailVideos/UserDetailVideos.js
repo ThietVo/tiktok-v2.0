@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import UserDetailVideo from "../UserDetailVideo";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 
 import styles from "./UserDetailVideos.module.scss";
 import { usersSelector, videosSelector } from "~/redux/selectors";
