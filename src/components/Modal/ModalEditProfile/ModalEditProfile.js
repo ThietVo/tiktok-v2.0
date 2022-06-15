@@ -30,7 +30,7 @@ function ModalEditProfile() {
 
     const storage = getStorage();
     //save url firebase of Avatar uploaded
-    const [urlFirebaseAvatar, setUrlFirebaseAvatar] = useState();
+    // const [urlFirebaseAvatar, setUrlFirebaseAvatar] = useState();
     //save flag check tiktokid have exist?
     const [isExist, setIsExist] = useState(null);
 
@@ -62,9 +62,9 @@ function ModalEditProfile() {
             });
             setTimeout(() => {
                 dispatch(modalSlice.actions.setModalEditProfile(false));
-                navigate(`/@${tiktokid}`);
-                // navigate(0);
-            }, 500);
+                navigate(`/@${debounced}`);
+                navigate(0);
+            }, 1500);
         }
     };
     //handle input file avatar
@@ -110,7 +110,7 @@ function ModalEditProfile() {
     //handle update database
     const handleUploadUser = () => {
         const data = {
-            tiktokid: tiktokid,
+            tiktokid: debounced,
             username: username,
             info: info,
         };

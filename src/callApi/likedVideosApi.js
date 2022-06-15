@@ -24,7 +24,7 @@ export const getLikesOfVideoApi = (videoId) => {
 }
 
 export const getLikedVideosOfUser = (userId) => {
-  return fetch(`${defaultUrl}/likedVideos?userId=${userId}`)
+  return fetch(`${defaultUrl}/likedVideos?userId=${userId}&_sort=createdAt&_order=desc`)
   .then((res) => res.json())
   .catch((err) => {
     console.log(err);

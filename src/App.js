@@ -26,10 +26,10 @@ function App() {
                     getLikedVideosOfUser(currentUser.uid).then((result) => {
                       dispatch(likedVideosSlice.actions.setLikedVideos(result));
                     });
-                }, 0);
+                }, 1000);
             }
         });
-    }, [dispatch]);
+    }, [auth]);
 
     return (
         <GlobalStyles>

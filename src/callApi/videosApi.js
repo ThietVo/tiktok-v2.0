@@ -40,7 +40,7 @@ export const getVideoWithUserByUserIdApi = (userId) => {
 }
 
 export const getVideosOfUserApi = (userId) => {
-  return fetch(`${defaultUrl}/videos?_expand=user&userId=${userId}`)
+  return fetch(`${defaultUrl}/videos?_expand=user&userId=${userId}&_sort=createdAt&_order=desc`)
     .then((res) => res.json())
     .catch((err) => {
       console.log(err);

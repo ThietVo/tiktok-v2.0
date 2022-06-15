@@ -16,7 +16,7 @@ function Login() {
         Đăng nhập để follow các tác giả, thích video và xem bình luận.
       </p>
       <Button
-        primary
+        outline
         large
         className={styles.sidebarLoginBtn}
         onClick={handleClick}

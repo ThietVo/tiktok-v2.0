@@ -5,6 +5,7 @@ export default createSlice({
     initialState: {
         videosWithUsers: null,
         indexCurrentVideo: null,
+        currentTimeVideo: 0,
     },
     reducers: {
         setVideosWithUsers: (state, action) => {
@@ -12,6 +13,9 @@ export default createSlice({
         },
         setIndexCurrentVideo: (state, action) => {
             state.indexCurrentVideo = action.payload;
+        },
+        setCurrentTimeVideo: (state, action) => {
+            state.currentTimeVideo = action.payload;
         }
     }
 }) 
