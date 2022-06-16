@@ -51,7 +51,6 @@ function ModalVideoDetail() {
 
     let timerId = useRef();
 
-    console.log(volumeVideo);
     useEffect(() => {
         setShowPlayBtn(false);
         setValueSliderVolume(volumeVideo*100)

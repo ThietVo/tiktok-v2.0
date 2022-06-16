@@ -3,20 +3,27 @@ import modalSlice from '~/redux/modalSlice';
 
 import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs';
 import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import videosSlice from '~/redux/videosSlice';
+import { videosSelector } from '~/redux/selectors';
 
 function HomeItemVideo({ index, video, user }) {
+    const dispatch = useDispatch();
     const [isPlay, setIsPlay] = useState(false);
-    const [isMute, setIsMute] = useState(true);
     const [showPlayBtn, setShowPlayBtn] = useState(false);
     const [showVolumeSlider, setShowVolumeSlider] = useState(false);
     const [valueSliderVolume, setValueSliderVolume] = useState(50);
-    const dispatch = useDispatch();
+    const { volumeVideo } = useSelector(videosSelector);
 
     const videoRef = useRef();
+
+    useEffect(() => {
+        setValueSliderVolume(volumeVideo*100)
+
+        videoRef.current.volume = volumeVideo;
+    }, [videoRef]);
 
     const handlePlayOrPauseVideo = () => {
         if (isPlay) {
@@ -29,12 +36,14 @@ function HomeItemVideo({ index, video, user }) {
     };
 
     const handleClickVolumeBtn = () => {
-        if (isMute) {
-            videoRef.current.muted = false;
-            setIsMute(false);
+        if (videoRef.current.volume === 0) {
+            videoRef.current.volume = 50 / 100;
+            dispatch(videosSlice.actions.setVolumnVideo(0.5));
+            setValueSliderVolume(50);
         } else {
-            videoRef.current.muted = true;
-            setIsMute(true);
+            videoRef.current.volume = 0;
+            dispatch(videosSlice.actions.setVolumnVideo(0));
+            setValueSliderVolume(0);
         }
     };
 
@@ -54,15 +63,7 @@ function HomeItemVideo({ index, video, user }) {
 
     const handleVolumeSlider = (e) => {
         setValueSliderVolume(+e.target.value);
-        videoRef.current.volume = valueSliderVolume / 100;
-        if (valueSliderVolume === 10) {
-            //=10 vi loi thanh truot
-            videoRef.current.muted = true;
-            setIsMute(true);
-        } else {
-            videoRef.current.muted = false;
-            setIsMute(false);
-        }
+        videoRef.current.volume = +e.target.value / 100;
     };
 
     const handleClickVideo = () => {
@@ -78,7 +79,7 @@ function HomeItemVideo({ index, video, user }) {
         <div className={styles.wrapper} onMouseEnter={handleHoverVideo} onMouseLeave={handleUnHoverVideo}>
             <div className={styles.video}>
                 <Link to={`#`} onClick={handleClickVideo}>
-                    <video ref={videoRef} key={video.url} loop muted playsInline>
+                    <video ref={videoRef} key={video.url} loop playsInline>
                         <source src={video.url} type="video/mp4" />
                     </video>
                 </Link>
@@ -101,7 +102,7 @@ function HomeItemVideo({ index, video, user }) {
                     onMouseLeave={handleUnHoverVolumeBtn}
                 >
                     <button className={styles.videoControlsVolumeBtn} onClick={handleClickVolumeBtn}>
-                        {isMute ? <HiVolumeOff /> : <HiVolumeUp />}
+                        {valueSliderVolume === 0 ? <HiVolumeOff /> : <HiVolumeUp />}
                     </button>
 
                     {showVolumeSlider && (
