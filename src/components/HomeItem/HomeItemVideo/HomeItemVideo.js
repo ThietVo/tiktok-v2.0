@@ -20,10 +20,38 @@ function HomeItemVideo({ index, video, user }) {
     const videoRef = useRef();
 
     useEffect(() => {
-        setValueSliderVolume(volumeVideo*100)
-
+        setValueSliderVolume(volumeVideo * 100);
         videoRef.current.volume = volumeVideo;
-    }, [videoRef]);
+
+        //auto play when scroll to video
+        let options = {
+            rootMargin: '0px',
+            threshold: [0.6, 1],
+        };
+
+        let handlePlay = (entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    videoRef.current.play();
+                    setIsPlay(true);
+                } else {
+                    videoRef.current.pause();
+                    setIsPlay(false);
+                }
+            });
+        };
+        let observer = new IntersectionObserver(handlePlay, options);
+        observer.observe(videoRef.current);
+
+        //paused video when switch tab browser or minimize
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                videoRef.current.pause();
+            } else {
+                // videoRef.current.play();
+            }
+        });
+    }, [videoRef, volumeVideo]);
 
     const handlePlayOrPauseVideo = () => {
         if (isPlay) {
