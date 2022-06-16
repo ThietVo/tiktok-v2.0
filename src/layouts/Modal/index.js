@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import ModalDeleteComment from '~/components/Modal/ModalDeleteComment';
 import ModalDeleteVideo from '~/components/Modal/ModalDeleteVideo';
@@ -18,8 +19,32 @@ function Modal() {
         showModalDeleteComment,
         showToastMessage,
         showModalSetPrivacy,
-        showModalDeleteVideo
+        showModalDeleteVideo,
     } = useSelector(modalSelector);
+
+    useEffect(() => {
+        if (
+            showModalLogin ||
+            showModalUpload ||
+            showModalVideoDetail ||
+            showModalDeleteComment ||
+            showModalDeleteVideo ||
+            showModalEditProfile ||
+            showModalSetPrivacy
+        ) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [
+        showModalLogin,
+        showModalUpload,
+        showModalVideoDetail,
+        showModalDeleteComment,
+        showModalDeleteVideo,
+        showModalEditProfile,
+        showModalSetPrivacy,
+    ]);
     return (
         <>
             {showModalLogin && <ModalLogin />}

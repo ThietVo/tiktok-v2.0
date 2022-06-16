@@ -23,6 +23,7 @@ function UserDetailVideo({ video, index }) {
     const handleClick = () => {
         dispatch(modalSlice.actions.setModalVideoDetail(true));
         dispatch(videosSlice.actions.setIndexCurrentVideo(index));
+        dispatch(videosSlice.actions.setCurrentTimeVideo(videoRef.current.currentTime));
     };
     return (
         <Link
