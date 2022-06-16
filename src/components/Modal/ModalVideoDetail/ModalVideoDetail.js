@@ -30,11 +30,10 @@ function ModalVideoDetail() {
     const dispatch = useDispatch();
     // const navigate = useNavigate();
     const { userLogged } = useSelector(usersSelector);
-    const { videosWithUsers, indexCurrentVideo, currentTimeVideo } = useSelector(videosSelector);
+    const { videosWithUsers, indexCurrentVideo, currentTimeVideo, volumeVideo } = useSelector(videosSelector);
     const { reload } = useSelector(commentSelector);
     const [comments, setComments] = useState([]);
 
-    const [isMute, setIsMute] = useState(true);
     const [showPlayBtn, setShowPlayBtn] = useState(false);
     const [showVolumeSlider, setShowVolumeSlider] = useState(false);
     const [valueSliderVolume, setValueSliderVolume] = useState(50);
@@ -52,8 +51,12 @@ function ModalVideoDetail() {
 
     let timerId = useRef();
 
+    console.log(volumeVideo);
     useEffect(() => {
         setShowPlayBtn(false);
+        setValueSliderVolume(volumeVideo*100)
+
+        videoRef.current.volume = volumeVideo;
     }, [indexCurrentVideo]);
 
     useEffect(() => {
@@ -128,15 +131,7 @@ function ModalVideoDetail() {
 
     const handleVolumeSlider = (e) => {
         setValueSliderVolume(+e.target.value);
-        videoRef.current.volume = valueSliderVolume / 100;
-        if (valueSliderVolume === 10) {
-            //=10 vi loi thanh truot
-            videoRef.current.muted = true;
-            setIsMute(true);
-        } else {
-            videoRef.current.muted = false;
-            setIsMute(false);
-        }
+        videoRef.current.volume = +e.target.value / 100;
     };
 
     const handleHoverVolumn = () => {
@@ -148,14 +143,14 @@ function ModalVideoDetail() {
     };
 
     const handleClickVolumeBtn = () => {
-        if (isMute) {
-            videoRef.current.muted = false;
+        if (videoRef.current.volume === 0) {
+            videoRef.current.volume = 50 / 100;
+            dispatch(videosSlice.actions.setVolumnVideo(0.5));
             setValueSliderVolume(50);
-            setIsMute(false);
         } else {
-            videoRef.current.muted = true;
+            videoRef.current.volume = 0;
+            dispatch(videosSlice.actions.setVolumnVideo(0));
             setValueSliderVolume(0);
-            setIsMute(true);
         }
     };
 
@@ -196,7 +191,7 @@ function ModalVideoDetail() {
 
                 <div className={styles.volume} onMouseEnter={handleHoverVolumn} onMouseLeave={handleUnHoverVolumn}>
                     <button className={styles.volumeBtn} onClick={handleClickVolumeBtn}>
-                        {isMute ? <HiVolumeOff /> : <HiVolumeUp />}
+                        {valueSliderVolume === 0 ? <HiVolumeOff /> : <HiVolumeUp />}
                     </button>
 
                     {showVolumeSlider && (
