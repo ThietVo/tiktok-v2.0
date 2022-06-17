@@ -10,8 +10,16 @@ import HomeItemVideoAction from './HomeItemVideoAction';
 import UserCard from '../UserCard';
 import FollowButton from '~/components/Button/FollowButton';
 import { calculateElapsedTime } from '~/assets/jsFunc';
+import {
+    useDispatch,
+    // useSelector
+} from 'react-redux';
+// import { videosSelector } from '~/redux/selectors';
+// import videosSlice from '~/redux/videosSlice';
 
 function HomeItem({ index, user, video, FollowBtn }) {
+    const dispatch = useDispatch();
+    // const { volumeVideo } = useSelector(videosSelector);
     const [style, setStyle] = useState({
         display: 'none',
         top: 20,
@@ -31,9 +39,24 @@ function HomeItem({ index, user, video, FollowBtn }) {
         setStyle({ ...style, display: 'none' });
     };
 
+    // const handleKeyDown = (e) => {
+    //     console.log(e.key);
+    //     if (e.key === 'm' || e.key === 'M') {
+    //         if (volumeVideo === 0) {
+    //             dispatch(videosSlice.actions.setVolumnVideo(0.5));
+    //         } else {
+    //             dispatch(videosSlice.actions.setVolumnVideo(0));
+    //         }
+    //     }
+    // };
+
     return (
         <>
-            <div className={styles.homeMainItem}>
+            <div
+                className={styles.homeMainItem}
+                // onKeyDown={handleKeyDown}
+                // tabIndex="-1"
+            >
                 <Avatar urlImg={user.avatar} avatarLarge />
 
                 <div className={styles.homeMainItemContent}>

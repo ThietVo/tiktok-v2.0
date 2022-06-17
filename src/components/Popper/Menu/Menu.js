@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
 
+import { useDispatch } from 'react-redux';
 import styles from './Menu.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper/Wrapper';
 import MenuItem from '~/components/Popper/Menu/MenuItem';
 import MenuHeader from './MenuHeader';
+import modalSlice from '~/redux/modalSlice';
 
 
 const defaultFn = () => {};
 
 function Menu({ children, items = [], onChange = defaultFn }) {
-
+    const dispatch = useDispatch()
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -27,6 +29,9 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                             setHistory((prev) => [...prev, item.children]);
                         } else {
                             onChange(item);
+                        }
+                        if(item.title === 'Phím tắt trên bàn phím'){
+                            dispatch(modalSlice.actions.setModalKeyboardShortcuts(true));
                         }
                     }}
                 />

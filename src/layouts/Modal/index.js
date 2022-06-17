@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import ModalDeleteComment from '~/components/Modal/ModalDeleteComment';
 import ModalDeleteVideo from '~/components/Modal/ModalDeleteVideo';
 import ModalEditProfile from '~/components/Modal/ModalEditProfile';
+import ModalKeyboardShortcuts from '~/components/Modal/ModalKeyboardShortcuts/ModalKeyboardShortcuts';
 import ModalLogin from '~/components/Modal/ModalLogin';
 import ModalSetPrivacy from '~/components/Modal/ModalSetPrivacy';
 import ModalUpload from '~/components/Modal/ModalUpload';
@@ -20,6 +21,7 @@ function Modal() {
         showToastMessage,
         showModalSetPrivacy,
         showModalDeleteVideo,
+        showModalKeyboardShortcuts
     } = useSelector(modalSelector);
 
     useEffect(() => {
@@ -30,7 +32,8 @@ function Modal() {
             showModalDeleteComment ||
             showModalDeleteVideo ||
             showModalEditProfile ||
-            showModalSetPrivacy
+            showModalSetPrivacy ||
+            showModalKeyboardShortcuts
         ) {
             document.body.style.overflow = 'hidden';
         } else {
@@ -44,6 +47,7 @@ function Modal() {
         showModalDeleteVideo,
         showModalEditProfile,
         showModalSetPrivacy,
+        showModalKeyboardShortcuts
     ]);
     return (
         <>
@@ -55,6 +59,7 @@ function Modal() {
             {showToastMessage && <ToastMessage />}
             {showModalSetPrivacy && <ModalSetPrivacy />}
             {showModalDeleteVideo && <ModalDeleteVideo />}
+            {showModalKeyboardShortcuts && <ModalKeyboardShortcuts />}
         </>
     );
 }
