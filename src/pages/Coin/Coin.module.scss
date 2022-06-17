@@ -1,0 +1,267 @@
+@import '../../scss/variable';
+@import '../../scss/mixin';
+
+.wrapper {
+    width: 1100px;
+    margin: 84px auto 24px;
+    padding: 32px 40px;
+
+    background-color: #fff;
+
+    border-radius: 8px;
+    box-shadow: 0px 2px 12px RGB(0 0 0 / 12%);
+
+    @include tablet {
+        width: 100%;
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & h3 {
+        @include textStyle(2.4rem, $black-color, 700);
+    }
+
+    & h4 {
+        @include textStyle(1.6rem, $black-color, 700);
+        cursor: pointer;
+    }
+}
+
+.profile {
+    max-width: 100%;
+    min-width: 255px;
+    width: max-content;
+    height: 76px;
+    padding: 16px 48px 16px 20px;
+    display: flex;
+    opacity: 0.8;
+    place-content: center flex-start;
+    background: rgba(22, 24, 35, 0.03);
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.name {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    padding-right: 20px;
+
+    &Info {
+        font-weight: 700;
+        font-size: 18px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.coinInfo {
+    display: flex;
+    align-items: center;
+    height: 18px;
+    margin-top: 4px;
+
+    & span {
+        height: 18px;
+        display: inline-flex;
+        align-items: center;
+        font-size: 14px;
+        margin-left: 4px;
+        color: rgba(22, 24, 35, 0.5);
+    }
+}
+
+.exchange {
+    padding-left: 20px;
+    border-left: 1px solid rgba(22, 24, 35, 0.12);
+
+    &Title {
+        color: rgba(22, 24, 35, 0.5);
+        font-size: 14px;
+        line-height: 22px;
+
+        width: max-content;
+
+        &Text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &SubTitle {
+        font-weight: 700;
+        color: rgba(22, 24, 35, 0.34);
+        font-size: 14px;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &Icon {
+            margin-left: 4px;
+        }
+    }
+}
+
+.subHeader {
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 16px;
+    line-height: 1.2;
+}
+
+.buyCoin {
+    display: grid;
+    margin: 8px 0;
+    column-gap: 16px;
+    background: unset;
+    padding: 0;
+    grid-template-columns: 255px 1fr;
+
+    @include tablet {
+        grid-template-columns: auto;
+        row-gap: 8px;
+    }
+}
+
+.offer {
+    display: flex;
+    flex-direction: column;
+    background: #f5f8fb;
+    padding: 16px;
+
+    &Title {
+        @include textStyle(2rem, $dark-red, 700);
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+    &List {
+        list-style-type: none;
+
+        &Item {
+            display: flex;
+            align-items: center;
+            min-height: 24px;
+            &Icon {
+                font-size: 2.6rem;
+                color: $dark-red;
+            }
+            &Text {
+                color: rgba(22, 24, 35, 1);
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 1.2;
+            }
+        }
+    }
+}
+
+.coinList {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(174px, 1fr));
+    gap: 16px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &Item {
+        min-height: 96px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 17px 2px 15px;
+        border-radius: 4px;
+        border: 1px solid rgba(22, 24, 35, 0.12);
+        // border: 2px solid rgb(250, 206, 21);
+        user-select: none;
+        cursor: pointer;
+        pointer-events: initial;
+
+        &Num {
+            display: flex;
+            align-items: center;
+            &Display {
+                @include textStyle(2.4rem, rgb(22, 24, 35), 700);
+                margin-left: 8px;
+            }
+        }
+
+        &Text {
+            text-align: center;
+            @include textStyle(1.4rem, rgba(22, 24, 35, 0.5), 700);
+            line-height: 1.1;
+            margin-top: 8px;
+        }
+    }
+
+    &Item:visited {
+        border: 2px solid rgb(250, 206, 21);
+    }
+}
+
+.paymentMethods {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    &Text {
+        font-size: 1.6rem;
+        color: rgb(22, 24, 35);
+        margin-right: 6px;
+    }
+    & img {
+        width: 22px;
+        height: 14px;
+        display: inline-block;
+        margin-right: 4px;
+    }
+}
+
+.total {
+    width: 100%;
+    margin-top: 16px;
+    &Text {
+        font-size: 1.6rem;
+        color: rgb(22, 24, 35);
+        margin-right: 6px;
+    }
+    &Money {
+        @include textStyle(1.6rem, rgb(22, 24, 35), 700);
+        margin-left: 8px;
+    }
+}
+
+.buyBtn {
+    width: 200px;
+    margin-top: 24px;
+}
+
+.coinIconSmall {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    color: #fff;
+    background: #fabc15;
+}
+
+.coinIconMedium {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    color: #fff;
+    background: #fabc15;
+}
+
+.coinIconLager {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    color: #fff;
+    background: #fabc15;
+}

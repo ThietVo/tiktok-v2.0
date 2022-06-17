@@ -6,6 +6,7 @@ const routes = {
     live: '/live',
     search: '/search',
     logOut: '/logout',
+    coin: '/coin',
     notFound: '/*'
 };
 
