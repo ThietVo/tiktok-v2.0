@@ -1,0 +1,64 @@
+@import '../../scss/mixin';
+@import '../../scss/variable';
+
+.wrapper {
+    width: 1100px;
+    height: 1000px;
+    margin: 76px auto;
+    background-color: #fff;
+
+    display: flex;
+    justify-content: space-between;
+
+    @include tablet {
+        width: calc(100% - 48px);
+    }
+}
+
+.wrapperSidebar {
+    position: relative;
+    flex: 0 0 356px;
+}
+
+.sidebar {
+    width: 356px;
+    padding: 16px 0px;
+    background: #fff;
+    box-shadow: RGB(0 0 0 / 12%) 0px 2px 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    overflow: hidden auto;
+    position: fixed;
+    bottom: 0;
+    top: 76px;
+}   
+
+.content {
+    background: #fff;
+    box-shadow: RGB(0 0 0 / 12%) 0px 2px 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    flex: 0 0 728px;
+    padding: 16px 24px 24px;
+}
+
+.nav {
+
+    &Item {
+        // height: 24px;
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &Icon {
+            font-size: 2.2rem;
+        }
+
+        &Text {
+            @include textStyle(1.8rem, rgb(22, 24, 35), 600);
+            margin-left: 12px;
+        }
+    }
+
+}

@@ -1,6 +1,6 @@
-import { FaTiktok, FaBook, FaKeyboard } from 'react-icons/fa';
+import { FaTiktok, FaBook, FaKeyboard, FaVideo } from 'react-icons/fa';
 import { FiSettings, FiLogOut, FiHelpCircle } from 'react-icons/fi';
-import { AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineUser, AiOutlineLineChart } from 'react-icons/ai';
 import { BiCloudUpload } from 'react-icons/bi';
 import Tippy from '@tippyjs/react';
 
@@ -25,6 +25,16 @@ function RightHeaderLogged() {
             icon: <FaTiktok />,
             title: 'Nhận xu',
             to: '/coin',
+        },
+        {
+            icon: <AiOutlineLineChart />,
+            title: 'Xem phân tích',
+            to: '/analytics',
+        },
+        {
+            icon: <FaVideo />,
+            title: 'LIVE studio',
+            to: '/studio/download',
         },
         {
             icon: <FiSettings />,
