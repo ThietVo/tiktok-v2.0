@@ -23,3 +23,13 @@ export const calculateElapsedTime = (timeCreated) => {
 
     return 'Vừa xong';
 };
+
+export const convertNumToThreeDigits = (num) => {
+    if(num !== undefined){
+        const numStr = num.toString().split('');
+        for(let i = numStr.length - 3; i >= 0 ; i -= 3 ){
+            numStr[i-1] && numStr.splice(i, 0 , ',');
+        }
+        return numStr.join('');
+    }
+}
