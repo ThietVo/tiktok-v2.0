@@ -15,7 +15,7 @@ import styles from './ModalVideoDetail.module.scss';
 import modalSlice from '~/redux/modalSlice';
 import CommentLogin from '~/components/Comment/CommentLogin';
 import CommentList from '~/components/Comment/CommentList';
-import { commentSelector, usersSelector, videosSelector } from '~/redux/selectors';
+import { usersSelector, videosSelector } from '~/redux/selectors';
 import { getCommentOfVideoApi } from '~/callApi/commentsApi';
 import FormComment from '~/components/Comment/FormComment';
 import commentSlice from '~/redux/commentSlice';
@@ -28,11 +28,9 @@ import { calculateElapsedTime } from '~/assets/jsFunc';
 
 function ModalVideoDetail() {
     const dispatch = useDispatch();
-    // const navigate = useNavigate();
     const { userLogged } = useSelector(usersSelector);
-    const { videosWithUsers, indexCurrentVideo, currentTimeVideo, volumeVideo } = useSelector(videosSelector);
-    const { reload } = useSelector(commentSelector);
-    const [comments, setComments] = useState([]);
+    const { videosWithUsers, indexCurrentVideo, commentsOfCurrentVideo, currentTimeVideo, volumeVideo } =
+        useSelector(videosSelector);
 
     const [showPlayBtn, setShowPlayBtn] = useState(false);
     const [showVolumeSlider, setShowVolumeSlider] = useState(false);
@@ -56,18 +54,16 @@ function ModalVideoDetail() {
         setValueSliderVolume(volumeVideo * 100);
 
         videoRef.current.volume = volumeVideo;
-    }, [indexCurrentVideo]);
-
-    useEffect(() => {
+        
+        ///
         videoRef.current.addEventListener('loadedmetadata', function () {
             this.currentTime = currentTimeVideo;
         });
         //get comments and sort by createdAt desc
         getCommentOfVideoApi(video.id).then((data) => {
-            setComments(data);
             dispatch(videosSlice.actions.setCommentsOfCurrentVideo(data));
         });
-    }, [reload, indexCurrentVideo, video.id]);
+    }, [indexCurrentVideo]);
 
     const handleMouseEnter = () => {
         timerId.current = setTimeout(() => {
@@ -84,14 +80,11 @@ function ModalVideoDetail() {
         dispatch(modalSlice.actions.setModalVideoDetail(false));
         dispatch(
             commentSlice.actions.setComment({
-                reload: false,
                 parentId: null,
                 replyUsername: null,
                 commentIdToDel: null,
             }),
         );
-
-        // navigate(-1);
     };
     //handle navigate to user detail page
     const handleUserDetail = () => {
@@ -271,7 +264,7 @@ function ModalVideoDetail() {
                             <div className={styles.contentContainerHeaderActionCommentIcon}>
                                 <FaCommentDots />
                             </div>
-                            <span>{comments ? comments.length : 0}</span>
+                            <span>{commentsOfCurrentVideo ? commentsOfCurrentVideo.length : 0}</span>
                         </div>
                     </div>
                     {/* Delete video, setting public video */}
@@ -297,7 +290,7 @@ function ModalVideoDetail() {
                 </div>
                 <div className={styles.contentContainerBody}>
                     {video.hasComment ? (
-                        <CommentList userPostVideo={user} comments={comments} />
+                        <CommentList userPostVideo={user} comments={commentsOfCurrentVideo} />
                     ) : (
                         <div className={styles.contentContainerBodyNoComment}>Bình luận đã tắt.</div>
                     )}

@@ -3,16 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 export default createSlice({
     name: 'comment',
     initialState: {
-        reload: false,
         parentId: null,
         replyUsername: null,
         commentIdToDel: null,
     },
     reducers: {
         setComment: (state, action) => {
-            state.parentId = action.payload.reload;
-            state.replyUsername = action.payload.parentId;
-            state.reload = action.payload.replyUsername;
+            state.parentId = action.payload.parentId;
+            state.replyUsername = action.payload.replyUsername;
             state.commentIdToDel = action.payload.commentIdToDel;
         },
         setParentId: (state, action) => {

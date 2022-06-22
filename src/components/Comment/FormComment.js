@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { createCommentApi } from "~/callApi/commentsApi";
 import commentSlice from "~/redux/commentSlice";
+import videosSlice from "~/redux/videosSlice";
 
 import {
   commentSelector,
@@ -15,8 +16,8 @@ function FormComment() {
   const dispatch = useDispatch();
   const { userLogged } = useSelector(usersSelector);
 
-  const { videosWithUsers, indexCurrentVideo } = useSelector(videosSelector);
-  const { parentId, replyUsername, reload } = useSelector(commentSelector);
+  const { videosWithUsers, indexCurrentVideo, commentsOfCurrentVideo } = useSelector(videosSelector);
+  const { parentId, replyUsername } = useSelector(commentSelector);
   const [comment, setComment] = useState();
   const inputRef = useRef();
 
@@ -54,8 +55,8 @@ function FormComment() {
       };
   
       createCommentApi(data);
+      dispatch(videosSlice.actions.setCommentsOfCurrentVideo([data, ...commentsOfCurrentVideo]));
       dispatch(commentSlice.actions.setParentId(null));
-      dispatch(commentSlice.actions.setReload(!reload));
       dispatch(commentSlice.actions.setReplyUsername(null));
       setComment("");
     }

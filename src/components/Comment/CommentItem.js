@@ -6,15 +6,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import commentSlice from '~/redux/commentSlice';
 import Avatar from '~/components/Avatar';
 import styles from './CommentItem.module.scss';
-import { commentSelector, usersSelector } from '~/redux/selectors';
+import { usersSelector, videosSelector } from '~/redux/selectors';
 import modalSlice from '~/redux/modalSlice';
 import { updateCommentApi } from '~/callApi/commentsApi';
 import { calculateElapsedTime } from '~/assets/jsFunc';
+import videosSlice from '~/redux/videosSlice';
 
 function CommentItem({ userPostVideo, comment, replies, parentId }) {
     const { userLogged } = useSelector(usersSelector);
-    // const { user } = useSelector(videoDetailSelector);
-    const { reload } = useSelector(commentSelector);
+    const { commentsOfCurrentVideo } = useSelector(videosSelector);
     const [isLike, setIsLike] = useState(false);
     const dispatch = useDispatch();
 
@@ -47,7 +47,16 @@ function CommentItem({ userPostVideo, comment, replies, parentId }) {
 
         updateCommentApi(comment.id, data);
         setIsLike(!isLike);
-        dispatch(commentSlice.actions.setReload(!reload));
+        dispatch(
+            videosSlice.actions.setCommentsOfCurrentVideo(
+                commentsOfCurrentVideo.map((element) => {
+                    if (element.id === comment.id) {
+                        return { ...comment, ...data };
+                    }
+                    return element;
+                }),
+            ),
+        );
     };
     return (
         <>
@@ -79,7 +88,14 @@ function CommentItem({ userPostVideo, comment, replies, parentId }) {
             <div className={styles.commentItemReply}>
                 {replies.length > 0 &&
                     replies.map((replyCmt) => {
-                        return <CommentItem key={replyCmt.id} comment={replyCmt} parentId={comment.id} replies={[]} />;
+                        return (
+                            <CommentItem
+                                key={replyCmt.id}
+                                comment={replyCmt}
+                                parentId={comment.id}
+                                replies={[]}
+                            />
+                        );
                     })}
             </div>
         </>
