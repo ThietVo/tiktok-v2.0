@@ -53,7 +53,7 @@ function ModalVideoDetail() {
 
     useEffect(() => {
         setShowPlayBtn(false);
-        setValueSliderVolume(volumeVideo*100)
+        setValueSliderVolume(volumeVideo * 100);
 
         videoRef.current.volume = volumeVideo;
     }, [indexCurrentVideo]);
@@ -63,7 +63,10 @@ function ModalVideoDetail() {
             this.currentTime = currentTimeVideo;
         });
         //get comments and sort by createdAt desc
-        getCommentOfVideoApi(video.id).then((data) => setComments(data));
+        getCommentOfVideoApi(video.id).then((data) => {
+            setComments(data);
+            dispatch(videosSlice.actions.setCommentsOfCurrentVideo(data));
+        });
     }, [reload, indexCurrentVideo, video.id]);
 
     const handleMouseEnter = () => {

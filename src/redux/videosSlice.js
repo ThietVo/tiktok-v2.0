@@ -5,6 +5,7 @@ export default createSlice({
     initialState: {
         videosWithUsers: null,
         indexCurrentVideo: null,
+        commentsOfCurrentVideo: null,
         currentTimeVideo: 0,
         volumeVideo: 0.5
     },
@@ -14,6 +15,9 @@ export default createSlice({
         },
         setIndexCurrentVideo: (state, action) => {
             state.indexCurrentVideo = action.payload;
+        },
+        setCommentsOfCurrentVideo: (state, action) => {
+            state.commentsOfCurrentVideo = action.payload;
         },
         setCurrentTimeVideo: (state, action) => {
             state.currentTimeVideo = action.payload;
