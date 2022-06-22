@@ -3,7 +3,6 @@
 
 .wrapper {
     width: 1100px;
-    height: 1000px;
     margin: 76px auto;
     background-color: #fff;
 
@@ -31,7 +30,7 @@
     position: fixed;
     bottom: 0;
     top: 76px;
-}   
+}
 
 .content {
     background: #fff;
@@ -43,7 +42,6 @@
 }
 
 .nav {
-
     &Item {
         // height: 24px;
         padding: 14px 24px;
@@ -60,5 +58,110 @@
             margin-left: 12px;
         }
     }
+}
 
+.contentItem {
+    display: block;
+    position: relative;
+    // padding-bottom: 16px;
+    word-break: break-all;
+}
+
+.contentItem:not(:first-child) {
+    margin-top: 32px;
+}
+.header {
+    @include textStyle(2.4rem, #000, 700);
+    line-height: 32px;
+    margin: 0 8px 20px;
+}
+
+.subItem {
+    border-bottom: 1px solid rgba(22, 24, 35, 0.2);
+    padding-bottom: 16px;
+    position: relative;
+
+    &Icon {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin: 0 16px;
+        transform: translateY(-50%);    
+    
+        font-size: 1.6rem;
+        cursor: pointer;
+    }
+}
+
+.subItem:not(:first-child) {
+    margin-top: 16px;
+}
+
+.title {
+    @include textStyle(1.8rem, #161823, 600);
+    line-height: 24px;
+    color: #161823;
+    margin: 0 16px 12px;
+}
+
+.subTitle {
+    @include textStyle(1.6rem, #161823, 400);
+    line-height: 22px;
+    margin: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &Right {
+        color: $dark-red;
+        cursor: pointer;
+    }
+}
+
+.switchBtn {
+    margin-left: 24px;
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    &Input {
+        display: none;
+    }
+
+    &Input:checked + &Slider {
+        background: $dark-red;
+    }
+
+    &Input:checked + &Slider::before {
+        transform: translateX(16px);
+    }
+    &Slider {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 12px;
+    }
+
+    &Slider::before {
+        position: absolute;
+        left: 4px;
+        bottom: 2px;
+        content: '';
+        height: 20px;
+        width: 20px;
+        background: #fff;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+}
+
+.desc {
+    @include textStyle(1.2rem, rgba(22, 24, 35, 0.5), 400);
+    line-height: 15px;
+    margin: 0 84px 0 16px;
 }

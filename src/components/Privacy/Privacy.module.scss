@@ -4,7 +4,7 @@
 .privacy {
     &Selection {
         &Desc {
-            @include textStyle(1.6rem, rgba(22,24,35,1), 500);
+            @include textStyle(1.6rem, rgba(22, 24, 35, 1), 500);
             margin-bottom: 8px;
         }
         & select {
@@ -21,7 +21,7 @@
         display: flex;
         align-items: center;
         &Desc {
-            @include textStyle(1.6rem, rgba(22,24,35,1), 500);
+            @include textStyle(1.6rem, rgba(22, 24, 35, 1), 500);
         }
 
         &Btn {
@@ -42,29 +42,29 @@
                 transform: translateX(16px);
             }
 
-        &Slider {
-            cursor: pointer;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            background-color: #ccc;
-            transition: 0.4s;
-            border-radius: 12px;
-        }
+            &Slider {
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                background-color: #ccc;
+                transition: 0.4s;
+                border-radius: 12px;
+            }
 
-        &Slider::before {
-            position: absolute;
-            left: 4px;
-            bottom: 2px;
-            content: "";
-            height: 20px;
-            width: 20px;
-            background: #fff;
-            transition: 0.4s;
-            border-radius: 50%;
-        }
+            &Slider::before {
+                position: absolute;
+                left: 4px;
+                bottom: 2px;
+                content: '';
+                height: 20px;
+                width: 20px;
+                background: #fff;
+                transition: 0.4s;
+                border-radius: 50%;
+            }
         }
     }
 }
