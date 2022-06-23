@@ -2,6 +2,7 @@ import { FaMusic, FaCheckCircle } from 'react-icons/fa';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Avatar from '~/components/Avatar';
 import styles from './HomeItem.module.scss';
@@ -89,8 +90,8 @@ function HomeItem({ index, user, video, FollowBtn }) {
                     </div>
 
                     <div className={styles.homeMainItemContentVideoWrapper}>
-                        <HomeItemVideo index={index} video={video} user={user} />
-                        <HomeItemVideoAction index={index} video={video} user={user} />
+                        <HomeItemVideo index={index} video={video} />
+                        <HomeItemVideoAction index={index} video={video} />
                     </div>
                 </div>
 
@@ -142,5 +143,12 @@ function HomeItem({ index, user, video, FollowBtn }) {
         </>
     );
 }
+
+HomeItem.propTypes = {
+    index: PropTypes.number.isRequired,
+    user: PropTypes.object.isRequired,
+    video: PropTypes.object.isRequired,
+    FollowBtn: PropTypes.bool.isRequired,
+};
 
 export default HomeItem;

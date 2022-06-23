@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
+
 import { getVideosOfUserInLikedVideosApi } from "~/callApi/videosApi";
 import styles from "./NumLikes.module.scss";
 
@@ -22,6 +24,10 @@ function NumLikes({ userId }) {
         <strong className={styles.numLikesText}>{numLikes}</strong> Like
     </div>
   )
+}
+
+NumLikes.propTypes = {
+  userId: PropTypes.string,
 }
 
 export default NumLikes

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import { FaCheckCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -19,6 +20,10 @@ function AccountItem({ data }) {
             </div>
         </Link>
      );
+}
+
+AccountItem.propTypes  = {
+    data: PropTypes.object.isRequired,
 }
 
 export default AccountItem;

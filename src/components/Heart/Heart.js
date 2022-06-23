@@ -3,6 +3,7 @@ import { FaHeart } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 import { createLikedVideosApi, deleteLikedVideoApi, getLikesOfVideoApi } from '~/callApi/likedVideosApi';
 import likedVideosSlice from '~/redux/likedVideosSlice';
@@ -73,6 +74,11 @@ function Heart({ video, styleHeart }) {
             <span>{numLikes}</span>
         </button>
     );
+}
+
+Heart.propTypes = {
+    video: PropTypes.object.isRequired,
+    styleHeart: PropTypes.string.isRequired, 
 }
 
 export default Heart;

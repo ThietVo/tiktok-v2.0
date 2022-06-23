@@ -1,4 +1,5 @@
-import { FaHashtag } from 'react-icons/fa'
+import { FaHashtag } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 import styles from './HashTag.module.scss';
 
 
@@ -11,6 +12,10 @@ function HashTag({ text }) {
             </p>
         </a>
     )
+}
+
+HashTag.propTypes = {
+    text: PropTypes.string.isRequired,
 }
 
 export default HashTag;

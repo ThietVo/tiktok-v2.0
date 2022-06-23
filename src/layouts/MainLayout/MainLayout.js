@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { layoutSelector } from '~/redux/selectors';
 import Header from '~/layouts/Header/Header';
@@ -22,6 +23,10 @@ function MainLayout({ children }) {
             </div>
         </div>
     )
+}
+
+MainLayout.propTypes = {
+    children: PropTypes.node.isRequired,
 }
 
 export default MainLayout;

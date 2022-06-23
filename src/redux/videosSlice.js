@@ -7,7 +7,7 @@ export default createSlice({
         indexCurrentVideo: null,
         commentsOfCurrentVideo: null,
         currentTimeVideo: 0,
-        volumeVideo: 0.5
+        volumeVideo: 0
     },
     reducers: {
         setVideosWithUsers: (state, action) => {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BiLockAlt } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { getVideoWithUserByVideoIdApi } from '~/callApi/videosApi';
 import { likedVideosSelector, usersSelector } from '~/redux/selectors';
@@ -17,15 +18,14 @@ function UserDetailLikedVideos({ userDetailId }) {
     useEffect(() => {
         if (userDetailId === userLogged.id) {
             if (likedVideos.length > 0) {
-              const sortVideosByCreatedAt = [...likedVideos].sort(
-                //sort likedVideos by createdAt
-                (a, b) =>
-                  new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-              );
-              sortVideosByCreatedAt.forEach((element, index) => {
+                const sortVideosByCreatedAt = [...likedVideos].sort(
+                    //sort likedVideos by createdAt
+                    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+                );
+                sortVideosByCreatedAt.forEach((element, index) => {
                     getVideoWithUserByVideoIdApi(element.videoId).then((result) => {
-                        if(result[0].hasPublic){
-                          setVideosWithUsers((prev) => [...prev, ...result]);
+                        if (result[0].hasPublic) {
+                            setVideosWithUsers((prev) => [...prev, ...result]);
                         }
                     });
                 });
@@ -56,5 +56,9 @@ function UserDetailLikedVideos({ userDetailId }) {
         </>
     );
 }
+
+UserDetailLikedVideos.propTypes = {
+    userDetailId: PropTypes.string,
+};
 
 export default UserDetailLikedVideos;

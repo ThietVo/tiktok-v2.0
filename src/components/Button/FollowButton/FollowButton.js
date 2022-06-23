@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import styles from './FollowButton.module.scss';
 import Button from '~/components/Button';
@@ -60,6 +61,10 @@ function FollowButton({ user }) {
             </Button>
         </div>
     );
+}
+
+FollowButton.propTypes = {
+    user: PropTypes.object.isRequired,
 }
 
 export default FollowButton;

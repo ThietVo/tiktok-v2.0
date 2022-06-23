@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
+import PropTypes from 'prop-types';
 
 import { useDispatch } from 'react-redux';
 import styles from './Menu.module.scss';
@@ -11,7 +12,7 @@ import modalSlice from '~/redux/modalSlice';
 
 const defaultFn = () => {};
 
-function Menu({ children, items = [], onChange = defaultFn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn }) {
     const dispatch = useDispatch()
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
@@ -44,6 +45,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
             interactive
             delay={[0, 700]}
             placement="bottom-end"
+            hideOnClick={hideOnClick}
             render={(attrs) => (
                 <div className={styles.menuList} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={styles.menuPopper}>
@@ -63,6 +65,13 @@ function Menu({ children, items = [], onChange = defaultFn }) {
             {children}
         </Tippy>
     );
+}
+
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    items: PropTypes.array,
+    hideOnClick: PropTypes.bool,
+    onChange: PropTypes.func,
 }
 
 export default Menu;

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRegHeart } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import commentSlice from '~/redux/commentSlice';
 import Avatar from '~/components/Avatar';
@@ -100,6 +101,13 @@ function CommentItem({ userPostVideo, comment, replies, parentId }) {
             </div>
         </>
     );
+}
+
+CommentItem.propTypes = {
+    userPostVideo: PropTypes.object,
+    comment: PropTypes.object.isRequired,
+    replies: PropTypes.array.isRequired,
+    parentId: PropTypes.string.isRequired,
 }
 
 export default CommentItem;

@@ -1,15 +1,16 @@
-import styles from './HomeItemVideo.module.scss';
-import modalSlice from '~/redux/modalSlice';
-
+import { useEffect, useRef, useState } from 'react';
 import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs';
 import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
-import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import styles from './HomeItemVideo.module.scss';
+import modalSlice from '~/redux/modalSlice';
 import videosSlice from '~/redux/videosSlice';
 import { videosSelector } from '~/redux/selectors';
 
-function HomeItemVideo({ index, video, user }) {
+function HomeItemVideo({ index, video }) {
     const dispatch = useDispatch();
     const [isPlay, setIsPlay] = useState(false);
     const [showPlayBtn, setShowPlayBtn] = useState(false);
@@ -149,6 +150,11 @@ function HomeItemVideo({ index, video, user }) {
             </div>
         </div>
     );
+}
+
+HomeItemVideo.propTypes = {
+    index: PropTypes.number.isRequired,
+    video: PropTypes.object.isRequired,
 }
 
 export default HomeItemVideo;

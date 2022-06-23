@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { FaCheckCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import styles from './FollowingAccounts.module.scss';
 import Avatar from '~/components/Avatar';
@@ -22,6 +23,10 @@ function FollowingAccountItem({ user }) {
             </Link>
         </div>
     );
+}
+
+FollowingAccountItem.propTypes = {
+    user: PropTypes.object.isRequired,
 }
 
 export default FollowingAccountItem;

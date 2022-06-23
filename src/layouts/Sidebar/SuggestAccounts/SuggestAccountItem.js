@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import styles from './SuggestAccounts.module.scss';
 import Avatar from '~/components/Avatar';
@@ -40,5 +41,9 @@ function SuggestAccountItem({ user }) {
         </div>
     );
 }
+
+SuggestAccountItem.propTypes = {
+    user: PropTypes.object.isRequired,
+};
 
 export default SuggestAccountItem;
