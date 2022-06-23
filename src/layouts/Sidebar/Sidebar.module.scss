@@ -9,9 +9,9 @@
         width: 72px;
     }
 
-    // @include mobile {
-    //     display: none;
-    // }
+    @include mobile {
+        width: 52px;
+    }
 }
 
 .sidebar {
@@ -28,6 +28,12 @@
 
     @include tablet {
         width: 72px;
+        border-right: 1px solid rgba(22, 24, 35, 0.12);
+    }
+
+    @include mobile {
+        width: 52px;
+        padding: 20px 0 26px;
         border-right: 1px solid rgba(22, 24, 35, 0.12);
     }
 }

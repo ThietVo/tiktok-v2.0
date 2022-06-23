@@ -8,6 +8,10 @@
     @include tablet{
         display: none;
     }
+
+    @include mobile{
+        display: none;
+    }
     
     &Header {
         @include textStyle(1.4rem, $gray, 600);

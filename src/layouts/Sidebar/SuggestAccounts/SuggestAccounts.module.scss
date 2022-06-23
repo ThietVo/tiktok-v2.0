@@ -14,10 +14,16 @@
     @include tablet {
         display: none;
     }
+    @include mobile{
+        display: none;
+    }
 }
 
 .action {
     @include tablet {
+        display: none;
+    }
+    @include mobile{
         display: none;
     }
 }
@@ -46,6 +52,9 @@
     @include tablet {
         display: block;
     }
+    @include mobile{
+        display: block;
+    }
 }
 
 //SuggestAccountItem
@@ -67,6 +76,9 @@
         margin-left: 12px;
 
         @include tablet {
+            display: none;
+        }
+        @include mobile{
             display: none;
         }
 
@@ -94,6 +106,9 @@
 
     &Card {
         @include tablet {
+            display: none;
+        }
+        @include mobile{
             display: none;
         }
     }

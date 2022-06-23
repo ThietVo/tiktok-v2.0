@@ -9,6 +9,10 @@
         display: none;
     }
 
+    @include mobile{
+        display: none;
+    }
+    
     &Tip {
         font-size: 1.6rem;
         color: $light-gray ;
