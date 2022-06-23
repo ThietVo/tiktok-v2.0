@@ -52,13 +52,12 @@ function HomeItem({ index, user, video, FollowBtn }) {
     // };
 
     return (
-        <>
             <div
                 className={styles.homeMainItem}
                 // onKeyDown={handleKeyDown}
                 // tabIndex="-1"
             >
-                <Avatar urlImg={user.avatar} avatarLarge />
+                <div className={styles.avatar}><Avatar urlImg={user.avatar} avatarLarge /></div>
 
                 <div className={styles.homeMainItemContent}>
                     <div className={styles.homeMainItemContentHeader}>
@@ -97,50 +96,6 @@ function HomeItem({ index, user, video, FollowBtn }) {
 
                 {FollowBtn && <FollowButton user={user} />}
             </div>
-
-            {/* mobileResponsive */}
-            {/* <div className={styles.mobileItem}>
-        <div className={styles.mobileItemVideo}>
-          <video key={video.url} loop muted playsInline controls>
-            <source src={video.url} />
-          </video>
-        </div>
-        <div className={styles.mobileItemInfo}>
-          <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <Link
-              to={FollowBtn ? `${user.id}` : `../${user.id}`}
-              className={styles.mobileItemInfoAuthor}
-            >
-              <h4 className={styles.mobileItemInfoAuthorName}>
-                @{user.username}
-              </h4>
-
-              {user.verified ? (
-                <FaCheckCircle className={clsx("checkIconSmall")} />
-              ) : (
-                ""
-              )}
-            </Link>
-          </div>
-
-          <div className={styles.mobileItemInfoDescription}>
-            <span>{video.description}</span>
-          </div>
-          <Link to="#" className={styles.mobileItemInfoMusic}>
-            <FaMusic className={styles.mobileItemInfoMusicIcon} />
-            Nhạc nền - {user.username}
-          </Link>
-        </div>
-        <div className={styles.mobileItemAction}>
-          <Link to="#" className={styles.mobileItemActionAvatar}>
-            <Avatar urlImg={user.avatar} avatarMedium />
-          </Link>
-          <div className={styles.mobileItemActionAction}>
-            <VideoAction index={index} video={video} user={user} />
-          </div>
-        </div>
-      </div> */}
-        </>
     );
 }
 

@@ -7,6 +7,13 @@
     align-items: center;
     justify-content: flex-end;
 
+    @include mobile {
+        position: absolute;
+        top: 50%;
+        right: 8%;
+        transform: translateY(-50%);
+    }
+
     &Btn {
         display: flex;
         flex-direction: column;

@@ -5,4 +5,10 @@
     width: $main-content-width;
     padding: 24px 0;
     margin: 0 16px;
+
+    @include mobile {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
 }

@@ -4,6 +4,12 @@
 .wrapper {
     position: relative;
     margin-right: 20px;
+
+    @include mobile {
+        display: flex;
+        
+        margin-right: 0;
+    }
 }
 .video {
     height: calc(450px + (100vw - 768px) / 1152 * 100);
@@ -11,6 +17,11 @@
     border-radius: 8px;
     cursor: pointer;
     overflow: hidden;
+
+    @include mobile {
+        margin: auto;
+
+    }
 
     & video {
         display: block;
@@ -29,6 +40,11 @@
     position: absolute;
     bottom: 0;
     right: 0;
+
+    @include mobile {
+        padding: 0 40px 30px 40px;
+    }
+
     &PlayBtn {
         height: 40px;
         font-size: 30px;

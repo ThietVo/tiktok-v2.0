@@ -3,7 +3,9 @@
 
 .wrapper {
     @include mobile {
-        display: none;
+        position: absolute;
+        top: 24px;
+        right: 0;
     }
 }
 

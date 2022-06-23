@@ -1,6 +1,12 @@
 @import '../../scss/variable';
 @import '../../scss/mixin';
 
+.wrapper {
+    @include mobile {
+        width: 100%;
+    }
+}
+
 .container {
     margin-top: $header-height;
     display: flex;

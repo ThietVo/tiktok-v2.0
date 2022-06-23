@@ -7,15 +7,10 @@
     width: 100%;
     display: flex;
     position: relative;
-    // margin-left: 48px;
 
-    // @include tablet {
-    //     margin-left: 0px;
-    // }
-    // @include mobile {
-    //     display: none;
-    //     border: none;
-    // }
+    @include mobile {
+        // height: calc(100vh - 60px);
+    }
 
     &FollowBtn{
         height: 28px;
@@ -49,6 +44,10 @@
             &Name {
                 @include textStyle(1.4rem, $black-color, 400);
                 margin-right: 8px;
+
+                @include mobile {
+                    display: none;
+                }
             }
         }
 
@@ -82,66 +81,19 @@
         &VideoWrapper {
             margin-top: 16px;
             display: flex;
+
+            @include mobile {
+                width: 100%;
+                display: block;
+                position: relative;
+            }
         }
     }
 }
 
-.mobileItem {
-    @include pc {
+
+.avatar {
+    @include mobile {
         display: none;
-    }
-
-    @include tablet {
-        display: none;
-    }
-    position: relative;
-    &Video {
-        height: calc(100vh - 49px);
-        width: 100%;
-        text-align: center;
-        background: rgba(10, 10, 10, 0.9);
-
-        & video {
-            height: 100%;
-            width: 310px;
-        }
-    }
-
-    &Info {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: 1;
-        color: #fff;
-        padding-left: 12px;
-        padding-bottom: 12px;
-        &Author {
-            display: flex;
-            & h4 {
-                @include textStyle(1.7rem, #fff, 600);
-                margin-bottom: 8px;
-            }
-        }
-
-        &Description {
-            @include textStyle(1.5rem, #fff, 400);
-            margin-bottom: 8px;
-        }
-
-        &Music {
-            @include textStyle(1.5rem, #fff, 400);
-            &Icon {
-                margin-right: 8px;
-            }
-        }
-    }
-
-    &Action {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1;
-        margin-right: 12px;
     }
 }
