@@ -6,16 +6,4 @@
     display: flex;
     justify-content: space-between;
     overflow-x: hidden;
-
-    // @include mobile {
-    //     margin-top: 0;
-    // }
-}
-
-.content {
-    flex: 1;
-
-    // @include tablet {
-    //     flex: auto;
-    // }
 }

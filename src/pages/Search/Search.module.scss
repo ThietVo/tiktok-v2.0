@@ -12,7 +12,6 @@
     display: flex;
     border-bottom: 1px solid rgba(7, 7, 10, 0.1);
     background: #fff;
-    // position: fixed;
     width: 100%;
 
     &Item {
@@ -26,10 +25,6 @@
             color: $black-color;
         }
     }
-
-    // &Item:hover {
-    //     border-bottom: 2px solid #000;
-    // } 
 }
 
 .wrapperBody {

@@ -7,7 +7,6 @@ import videosSlice from '~/redux/videosSlice';
 import { getVideosWithUsersApi } from '~/callApi/videosApi';
 import { usersSelector } from '~/redux/selectors';
 import layoutSlice from '~/redux/layoutSlice';
-// import MobileHeader from "../MobileResponsive/MobileHeader";
 
 function Home() {
     const dispatch = useDispatch();
@@ -27,8 +26,6 @@ function Home() {
 
     return (
         <div className={styles.homeMain}>
-            {/* mobile responsive */}
-            {/* <MobileHeader /> */}
 
             {videosWithUsers &&
                 videosWithUsers.map((video, index) => {

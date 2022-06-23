@@ -7,8 +7,11 @@
     width: 100%;
     display: flex;
     position: relative;
-    margin-left: 48px;
+    // margin-left: 48px;
 
+    // @include tablet {
+    //     margin-left: 0px;
+    // }
     // @include mobile {
     //     display: none;
     //     border: none;

@@ -14,7 +14,6 @@ function LogOut() {
         navigate('/');
         dispatch(usersSlice.actions.setUserLogin(''))
     }, [])
-    // dispatch(sidebarSlice.actions.setShowSidebar(true));
     return ( <></> );
 }
 

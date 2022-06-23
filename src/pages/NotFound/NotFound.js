@@ -1,5 +1,7 @@
+import styles from './NotFound.module.scss';
+
 function NotFound() {
-    return ( <h2>NotFound</h2> );
+    return ( <div className={styles.wrapper}>NotFound</div> );
 }
 
 export default NotFound;

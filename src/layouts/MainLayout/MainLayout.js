@@ -17,9 +17,7 @@ function MainLayout({ children }) {
             <Header />
             <div className={clsx(styles.container, {'container': hasClassContainer})}>
                 <Sidebar />
-                <div className={styles.content}>
-                    { children }
-                </div>
+                { children }
             </div>
         </div>
     )

@@ -18,8 +18,12 @@
     position: absolute;
     top: 20px;
     right: 40%;
-
+    
     --growth-from: 0.7;
     --growth-to: 1;
     animation: growth linear 0.1s;
+
+    @include tablet {
+        right: 30%;
+    }
 }

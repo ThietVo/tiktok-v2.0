@@ -2,14 +2,12 @@
 @import '../../scss/mixin';
 
 .following {
-    // width: $main-content-width;
-    width: 100%;
-    padding: 24px 16px;
-    // float: right;
-    
-    @include mobile {
-        width: 100%;
-        padding: 0;
-        margin: 0;
+    width: 720px;
+    padding: 24px 0;
+    margin-right: 24px;
+
+    @include tablet {
+        width: 692px;
+        margin-left: 16px;
     }
 }

@@ -12,6 +12,10 @@
 .search,
 .searchResult {
     width: 361px;
+
+    @include tablet {
+        width: 250px;
+    }
 }
 
 .search {
@@ -23,6 +27,10 @@
     background-color: rgba(22, 24, 35, 0.06);
     border-radius: var(--search-border-radius);
     border: 1.5px solid transparent;
+
+    @include tablet {
+        width: 250px;
+    }
     input {
         flex: 1;
         height: 100%;
@@ -32,6 +40,10 @@
         caret-color: $dark-red;
         background-color: transparent;
         border: none;
+
+        @include tablet {
+            padding-right: 0px;
+        }
     }
     input:not(:placeholder-shown) ~ .search-btn {
         color: rgba(22, 24, 35, 0.75);
@@ -94,6 +106,7 @@
     font-size: 1.8rem;
     color: rgba(22, 24, 35, 0.34);
     border: none;
+
     &:hover {
         cursor: pointer;
         background-color: rgba(22, 24, 35, 0.03);
