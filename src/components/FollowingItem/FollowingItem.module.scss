@@ -1,7 +1,8 @@
 @import '../../scss/variable';
 @import '../../scss/mixin';
 
-.followingItem {
+.wrapper {
+    position: relative;
     height: 302px;
     width: 226px;
     margin-right: 10px;
@@ -10,8 +11,12 @@
     margin-bottom: 18px;
     background: rgb(211, 208, 208);
     overflow: hidden;
-    position: relative;
     float: left;
+}
+
+.followingItem {
+    width: 100%;
+    height: 100%;
 
     &Video {
         display: block;
@@ -28,10 +33,12 @@
         width: 100%;
         position: absolute;
         bottom: 0;
+        cursor: pointer;
 
         &Description {
-            text-align: center;
-            margin-top: 14px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
             margin-bottom: 8px;
         }
 
