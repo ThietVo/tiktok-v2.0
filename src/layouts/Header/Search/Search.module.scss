@@ -6,6 +6,10 @@
     --search-height: 46px;
     --search-top-spacer: 9px;
     --search-button-width: 52px; 
+
+    @include mobile {
+        display: none;
+    }
 }
    
 
