@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -7,7 +7,8 @@ import { auth } from '~/firebase';
 import modalSlice from '~/redux/modalSlice';
 import Button from '~/components/Button';
 import styles from './ModalLogin.module.scss';
-import { createUserApi } from '~/callApi/usersApi';
+import { createUserApi, filterUsersByEmail } from '~/callApi/usersApi';
+import { useDebounce } from '~/hooks';
 
 function Register() {
     const dispatch = useDispatch();
@@ -16,8 +17,21 @@ function Register() {
     const [password, setPassword] = useState('');
     const [passwordAgain, setPasswordAgain] = useState('');
     const [emailErr, setEmailErr] = useState();
+    const [ emailExisted, setEmailExisted ] = useState();
     const [passwordErr, setPasswordErr] = useState();
     const [passwordAgainErr, setPasswordAgainErr] = useState();
+
+    const debounced = useDebounce(email, 500);
+
+    useEffect(() => {
+        filterUsersByEmail(email).then(result => {
+            if(result.length > 0){
+                setEmailExisted(true);
+            }else {
+                setEmailExisted(false);
+            }
+        })
+    }, [debounced])
 
     const handleCloseModal = () => {
         dispatch(modalSlice.actions.setModalLogin(false));
@@ -58,7 +72,7 @@ function Register() {
     };
 
     const handleCreateUser = () => {
-        if (!passwordErr && !passwordAgainErr) {
+        if (!passwordErr && !passwordAgainErr && !emailErr && !emailExisted) {
             createUserWithEmailAndPassword(auth, email, password).then((currentUser) => {
                 const id = currentUser.user.uid;
                 const data = {
@@ -91,6 +105,7 @@ function Register() {
                     onChange={handleEmailInput}
                 ></input>
             </div>
+            {emailExisted && <div className={styles.alertError}>Email đã tồn tại!</div>}
             {emailErr && <div className={styles.alertError}>Email không hợp lệ!</div>}
             <div className={styles.formGroup}>
                 <input

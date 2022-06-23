@@ -40,6 +40,14 @@ export const filterUsersByTiktokId = (tiktokId) => {
     });
 };
 
+export const filterUsersByEmail = (email) => {
+  return fetch(`${defaultUrl}/users?email=${email}`)
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export const createUserApi = (data) => {
   let options = {
     method: "POST",
