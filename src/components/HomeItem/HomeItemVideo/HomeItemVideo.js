@@ -155,6 +155,6 @@ function HomeItemVideo({ index, video }) {
 HomeItemVideo.propTypes = {
     index: PropTypes.number.isRequired,
     video: PropTypes.object.isRequired,
-}
+};
 
 export default HomeItemVideo;
