@@ -54,14 +54,18 @@ function ModalVideoDetail() {
         setValueSliderVolume(volumeVideo * 100);
 
         videoRef.current.volume = volumeVideo;
-        
+
         ///
         videoRef.current.addEventListener('loadedmetadata', function () {
             this.currentTime = currentTimeVideo;
         });
         //get comments and sort by createdAt desc
         getCommentOfVideoApi(video.id).then((data) => {
-            dispatch(videosSlice.actions.setCommentsOfCurrentVideo(data));
+            dispatch(
+                videosSlice.actions.setCommentsOfCurrentVideo(
+                    data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()),
+                ),
+            );
         });
     }, [indexCurrentVideo]);
 

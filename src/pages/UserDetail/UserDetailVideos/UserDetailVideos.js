@@ -18,7 +18,7 @@ function UserDetailVideos({ userDetailId }) {
         getVideosOfUserApi(userDetailId).then((result) => {
             const arr = //filter videos
                 userDetailId === userLogged.id ? result : result.filter((element) => element.hasPublic === true);
-            dispatch(videosSlice.actions.setVideosWithUsers(arr)); //update redux save videos
+            dispatch(videosSlice.actions.setVideosWithUsers(arr.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()))); //update redux save videos
         });
     }, [userDetailId]);
 
