@@ -18,14 +18,14 @@ function FormComment() {
 
   const { videosWithUsers, indexCurrentVideo, commentsOfCurrentVideo } = useSelector(videosSelector);
   const { parentId, replyUsername } = useSelector(commentSelector);
-  const [comment, setComment] = useState();
+  const [comment, setComment] = useState('');
   const inputRef = useRef();
 
   const video = videosWithUsers[indexCurrentVideo];
 
   useEffect(() => {
     if (replyUsername) {
-      setComment(`Trả lời @${replyUsername}: `);
+      inputRef.current.focus();
     }
   }, [replyUsername]);
 
@@ -36,6 +36,10 @@ function FormComment() {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleAddComment();
+    }
+    if(e.key === 'Backspace' && comment === '') {
+       dispatch(commentSlice.actions.setReplyUsername(null));
+      dispatch(commentSlice.actions.setParentId(null));
     }
   };
 
@@ -61,9 +65,10 @@ function FormComment() {
       setComment("");
     }
   };
+
   return (
     <div className={styles.formComment}>
-      {/* <div className={styles.formCommentReply} value='Reply @ThietVo:'></div> */}
+      {replyUsername !== null && <div className={styles.formCommentReply}>Reply @{replyUsername}:</div>}
       <input
         ref={inputRef}
         value={comment}

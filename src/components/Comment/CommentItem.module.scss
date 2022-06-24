@@ -16,7 +16,9 @@
         }
         &Text {
             margin: 8px 0;
+            margin-right: 12px;
             @include textStyle(1.6rem, $black-color, 400);
+            word-break: break-all;
         }
         &Sub {
             @include textStyle(1.4rem, rgba(22, 24, 35, 0.5), 400);

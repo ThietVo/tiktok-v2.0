@@ -9,7 +9,10 @@
     justify-content: center;
 
     &Reply {
-      padding: 9px 4px 7px 10px;
+      display: flex;
+      align-items: center;
+      padding: 8px 0 8px 10px;
+      height: 40px;
       @include textStyle(1.4rem, $black-color, 400);
       background: rgba(18, 18, 18, 0.12);
       border-top-left-radius: 4px;

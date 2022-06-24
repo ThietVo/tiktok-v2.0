@@ -23,7 +23,17 @@ function HomeItemVideo({ index, video }) {
     useEffect(() => {
         setValueSliderVolume(volumeVideo * 100);
         videoRef.current.volume = volumeVideo;
+        //paused video when switch tab browser or minimize
+        // document.addEventListener('visibilitychange', function () {
+        //     if (document.hidden) {
+        //         // videoRef.current.pause();
+        //     } else {
+        //         // videoRef.current.play();
+        //     }
+        // });
+    }, [videoRef, volumeVideo]);
 
+    useEffect(() => {
         //auto play when scroll to video
         let options = {
             rootMargin: '0px',
@@ -43,16 +53,7 @@ function HomeItemVideo({ index, video }) {
         };
         let observer = new IntersectionObserver(handlePlay, options);
         observer.observe(videoRef.current);
-
-        //paused video when switch tab browser or minimize
-        // document.addEventListener('visibilitychange', function () {
-        //     if (document.hidden) {
-        //         // videoRef.current.pause();
-        //     } else {
-        //         // videoRef.current.play();
-        //     }
-        // });
-    }, [videoRef, volumeVideo]);
+    }, [videoRef])
 
     const handlePlayOrPauseVideo = () => {
         if (isPlay) {

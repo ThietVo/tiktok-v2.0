@@ -93,7 +93,7 @@ function CommentItem({ userPostVideo, comment, replies, parentId }) {
                             <CommentItem
                                 key={replyCmt.id}
                                 comment={replyCmt}
-                                parentId={comment.id}
+                                parentId={parentId}
                                 replies={[]}
                             />
                         );
