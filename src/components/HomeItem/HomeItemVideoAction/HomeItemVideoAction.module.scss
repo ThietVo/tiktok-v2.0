@@ -27,7 +27,7 @@
             @include textStyle(1.2rem, $light-gray, 600);
 
             @include mobile {
-                color: #fff;
+                color: rgb(41, 39, 39);
                 font-size: 1.4rem;
             }
         }

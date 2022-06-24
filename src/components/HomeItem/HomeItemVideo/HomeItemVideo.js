@@ -45,13 +45,13 @@ function HomeItemVideo({ index, video }) {
         observer.observe(videoRef.current);
 
         //paused video when switch tab browser or minimize
-        document.addEventListener('visibilitychange', function () {
-            if (document.hidden) {
-                videoRef.current.pause();
-            } else {
-                // videoRef.current.play();
-            }
-        });
+        // document.addEventListener('visibilitychange', function () {
+        //     if (document.hidden) {
+        //         // videoRef.current.pause();
+        //     } else {
+        //         // videoRef.current.play();
+        //     }
+        // });
     }, [videoRef, volumeVideo]);
 
     const handlePlayOrPauseVideo = () => {

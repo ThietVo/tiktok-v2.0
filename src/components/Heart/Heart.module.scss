@@ -13,7 +13,7 @@
         @include textStyle(1.2rem, $black-color, 400);
 
         @include mobile {
-            color: #fff;
+            color: rgb(41, 39, 39);
             font-size: 1.4rem;
         }
     }
