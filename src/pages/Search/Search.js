@@ -9,6 +9,8 @@ import Avatar from '~/components/Avatar';
 import { searchSeletor } from '~/redux/selectors';
 import { Link } from 'react-router-dom';
 import { calculateElapsedTime } from '~/assets/jsFunc';
+import videosSlice from '~/redux/videosSlice';
+import modalSlice from '~/redux/modalSlice';
 
 function Search() {
     const dispatch = useDispatch();
@@ -58,6 +60,12 @@ function Search() {
             isVideoTab: true,
         });
     };
+
+    const handleClickVideo = (index) => {
+        dispatch(videosSlice.actions.setVideosWithUsers(searchVideoResult));
+        dispatch(videosSlice.actions.setIndexCurrentVideo(index));
+        dispatch(modalSlice.actions.setModalVideoDetail(true));
+    }
 
     return (
         <div className={styles.wrapper}>
@@ -123,7 +131,7 @@ function Search() {
                     <div className={styles.contentVideo}>
                         {searchVideoResult.length > 0 &&
                             searchVideoResult.map((video, index) => (
-                                <div className={styles.videoItem} key={index}>
+                                <div className={styles.videoItem} key={index} onClick={() => handleClickVideo(index)}>
                                     <div
                                         className={styles.video}
                                         onMouseEnter={handleHoverVideo}
@@ -179,7 +187,7 @@ function Search() {
                     <div className={styles.contentVideo}>
                         {searchVideoResult.length > 0 &&
                             searchVideoResult.map((video, index) => (
-                                <div className={styles.videoItem} key={index}>
+                                <div className={styles.videoItem} key={index} onClick={() => handleClickVideo(index)}>
                                     <div
                                         className={styles.video}
                                         onMouseEnter={handleHoverVideo}
